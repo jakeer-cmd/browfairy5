@@ -234,7 +234,7 @@
         font-size: 2.9rem !important;  /* Smaller font for mobile */
         margin-left: 0 !important;
         margin-top: 40px !important;
-        padding: 0 15px !important; /* Added padding for mobile */
+        padding: 0 15px !important;
         text-align: center !important;
       }
 
@@ -242,7 +242,7 @@
         font-size: 1.1rem !important;  /* Smaller font for mobile */
         margin-left: 0 !important;
         margin-top: 10px !important;
-        padding: 0 15px !important; /* Added padding for mobile */
+        padding: 0 15px !important;
         text-align: center !important;
       }
       
@@ -531,12 +531,12 @@
 
 <!-- Desktop Video -->
 <video id="bg-video-desktop" class="video-desktop" autoplay muted loop playsinline>
-  <source src="nano combination brows.mp4" type="video/mp4" />
+  <source src="videos/nano combination brows.mp4" type="video/mp4" />
 </video>
 
 <!-- Mobile Video -->
 <video id="bg-video-mobile" class="video-mobile" autoplay muted loop playsinline>
-  <source src="VID-20250710-WA0004.mp4" type="video/mp4" />
+  <source src="videos2/VID-20250710-WA0004.mp4" type="video/mp4" />
 </video>
 
 <div class="overlay"></div>
@@ -562,11 +562,11 @@
           <li class="has-dropdown nav-item">
             <a class="nav-link" href="#">Services <i class="fa-solid fa-chevron-down chev"></i></a>
             <ul class="dropdown">
-              <li><a class="dropdown-item" href="Microblading2.html">Microblading</a></li>
+              <li><a class="dropdown-item" href="microblading2.html">Microblading</a></li>
               <li><a class="dropdown-item" href="Combination brows2.html">Combination Brows</a></li>
               <li><a class="dropdown-item" href="ombre-brows2.html">Ombré Powder Brows</a></li>
               <li><a class="dropdown-item" href="Lip neutralization2.html">Lip Neutralization</a></li>
-              <li><a class="dropdown-item" href="Lip Blush2.html">Lip Blush</a></li>
+              <li><a class="dropdown-item" href="Lip blush2.html">Lip Blush</a></li>
               <li><a class="dropdown-item" href="Lash liner2.html">Lash Liner</a></li>
               <li><a class="dropdown-item" href="nano-hairstrokes2.html">Nano Hairstrokes Brows</a></li>
               <li><a class="dropdown-item" href="Nano combination brows2.html">Nano Combination Brows</a></li>
@@ -575,7 +575,7 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="Online Training Courses2.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="blogs2.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="Blogs2.html">Blogs</a></li>
           <li class="nav-item"><a class="nav-link" href="contact2.html">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="Faqs2.html">FAQS</a></li>
         </ul>
@@ -627,10 +627,10 @@
         <!-- Left Column: Images -->
         <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
           <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-            <img src="service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+            <img src="images/service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
           </div>
           <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-            <img src="service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+            <img src="images/service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
           </div>
         </div>
 
@@ -674,6 +674,29 @@
       </div>
     </div>
   </section>
+</div>
+
+<!-- CHAT BOT CODE -->
+<button class="chat-icon-button" onclick="openChat()">
+    <i class="fas fa-comment-dots"></i>
+</button>
+
+<div id="chatbot-popup">
+    <header>
+        <div class="header-content">
+            <span class="header-title">Browfairy</span>
+            <span class="header-tip">For accurate info, verify with us.</span>
+        </div>
+        <span class="close-btn" onclick="closeChat()">&times;</span>
+    </header>
+    <div id="chat-content"></div>
+    <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <div class="chat-footer-controls">
+            <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+            <span class="powered-by">Powered by www.HyperionAI Solution.com</span>
+        </div>
+    </div>
 </div>
 
 <!-- Bootstrap JS Bundle -->
@@ -727,8 +750,6 @@
 
   // Run the function when the page loads
   document.addEventListener('DOMContentLoaded', animateOnLoad);
-
-  // You can also call this function whenever new content is loaded, for example, on a single-page application transition.
 </script>
 
 <script>
@@ -785,6 +806,139 @@
         link.appendChild(logoContainer.firstChild);
       }
       logoContainer.appendChild(link);
+    }
+  });
+</script>
+
+<script>
+  const responses = {
+    "hi": "Hi, I am your Browfairy. ",
+    "hello": "Hello! Feel free to ask me any questions about our services. For accurate info, it's always best to call or WhatsApp us.",
+    "timings": "We are open from 11 AM to 8 PM every day.",
+    "what are your timings": "We are open from 11 AM to 8 PM every day.",
+    "location": "It's located in Kondapur, Hyderabad.",
+    "are weekends open": "Yes, we are open all days. But you need to book a prior appointment.",
+    "how can i book my appointment": "You can call/WhatsApp us on +91 9908063645 for booking the appointment.",
+    "how many sessions for eyebrows": "Two sessions are typically needed for eyebrows. The first session creates the shape and color, while the second perfects the result.",
+    "how many sessions for lips": "2-3 sessions are required for lips procedures depending on the skin type.",
+    "how long does the process take": "A procedure typically takes between 2-3 hours.",
+    "can we have a phone consultation": "Yes, absolutely. Please call/WhatsApp us on +91 9908063645.",
+    "is it permanent": "It's a semi-permanent makeup that lasts for at least 2-3 years. After that, a touch-up session will maintain the results.",
+    "how many sessions for long lasting results": "Two sessions are required for long-lasting results.",
+    "does it hurt": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
+    "is it painful": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
+    "what is pmu": "PMU stands for Permanent Makeup, a cosmetic tattoo technique that enhances features like eyebrows, lips, and eyes using pigments implanted into the skin. It saves time, boosts confidence, and gives a long-lasting polished look.",
+    "what is microblading": "Microblading is a semi-permanent eyebrow technique that uses fine needles to create hair-like strokes, enhancing shape and fullness. Results last 1-2 years with proper care.",
+    "is it safe": "Yes, PMU is safe when performed by a trained professional in a sterile environment. However, it may not be suitable for everyone like pregnant women, breastfeeding mothers, or those on blood thinner medications.",
+    "how long does a lip procedure last": "It typically takes 2-3 hours for the procedure and the results last for at least 2-3 years.",
+    "default": "Please call/WhatsApp us on +91 9908063645 or DM on Instagram to get accurate responses."
+  };
+
+  function openChat() {
+    const chatPopup = document.getElementById('chatbot-popup');
+    const chatContent = document.getElementById('chat-content');
+
+    chatPopup.classList.add('active');
+
+    if (!chatContent.innerHTML.includes('Welcome to Browfairy!')) {
+      appendMessage('Bot', 'Welcome to Browfairy! I can assist you with FAQs and service-related questions.');
+      showQuickReplies(['What is microblading', 'Is it safe', 'Does it hurt']);
+    }
+  }
+
+  function closeChat() {
+    document.getElementById('chatbot-popup').classList.remove('active');
+  }
+
+  function clearChat() {
+    document.getElementById('chat-content').innerHTML = '';
+  }
+
+  document.getElementById('chat-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      let userInput = this.value.trim().toLowerCase();
+      if (userInput === '') return;
+
+      appendMessage('You', userInput);
+      this.value = '';
+      showTyping();
+
+      let botReplyContent = responses[userInput] || responses["default"];
+      
+      // Add contact links with underlines
+      let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
+      
+      let botReply = botReplyContent + contactLinks;
+
+      setTimeout(() => {
+        removeTyping();
+        appendMessage('Fairy', botReply);
+      }, 1000);
+    }
+  });
+
+  function appendMessage(sender, message) {
+    const chatContent = document.getElementById('chat-content');
+    const messageDiv = document.createElement('div');
+    const bubbleDiv = document.createElement('div');
+
+    messageDiv.classList.add('chat-message');
+    bubbleDiv.classList.add('message-bubble');
+
+    if (sender === 'You') {
+      messageDiv.classList.add('user-message');
+      bubbleDiv.classList.add('user-bubble');
+    } else {
+      messageDiv.classList.add('bot-message');
+      bubbleDiv.classList.add('bot-bubble');
+    }
+
+    bubbleDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    messageDiv.appendChild(bubbleDiv);
+    chatContent.appendChild(messageDiv);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  function showTyping() {
+    const chatContent = document.getElementById('chat-content');
+    const typingDiv = document.createElement('div');
+    typingDiv.id = 'typing-indicator';
+    typingDiv.className = 'chat-message bot-message';
+    typingDiv.innerHTML = `<div class='message-bubble bot-bubble typing'>Typing...</div>`;
+    chatContent.appendChild(typingDiv);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  function removeTyping() {
+    const typingDiv = document.getElementById('typing-indicator');
+    if (typingDiv) typingDiv.remove();
+  }
+
+  function showQuickReplies(options) {
+    const chatContent = document.getElementById('chat-content');
+    const repliesDiv = document.createElement('div');
+    repliesDiv.className = 'quick-replies';
+
+    options.forEach(option => {
+      const btn = document.createElement('div');
+      btn.className = 'quick-reply-btn';
+      btn.innerText = option;
+      btn.onclick = function() {
+        document.getElementById('chat-input').value = option;
+        document.getElementById('chat-input').focus();
+      };
+      repliesDiv.appendChild(btn);
+    });
+
+    chatContent.appendChild(repliesDiv);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  document.addEventListener('click', function(event) {
+    const chatPopup = document.getElementById('chatbot-popup');
+    const chatButton = document.querySelector('.chat-icon-button');
+    if (chatPopup.classList.contains('active') && !chatPopup.contains(event.target) && !chatButton.contains(event.target)) {
+      closeChat();
     }
   });
 </script>
