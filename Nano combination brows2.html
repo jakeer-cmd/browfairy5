@@ -14,16 +14,98 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* Base mobile-first styles */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
     .About-title { font-family: 'Lobster Two', cursive; }
-    #bg-video { position: fixed; inset: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; }
-    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: -1; }
-    .hero { display: flex; flex-direction: column; justify-content: left; align-items: left; text-align: left; min-height: 80vh; padding-top: 120px; }
-    .hero h1 { font-family: 'Dancing Script', cursive; font-size: 84px; color: #DAA520; margin-bottom: 12px; }
-    .hero .tagline { font-size: 22px; font-weight: 500; color: #fff; letter-spacing: 1px; max-width: 850px; margin: 0 auto; }
-    .navbar { background-color: transparent; position: relative; z-index: 1000; }
-    .navbar .nav-link { color: white; font-weight: 500; }
-    .navbar .nav-link:hover, .navbar .nav-link:focus { color: #FFD700; }
-    .navbar-toggler { border-color: rgba(255,255,255,0.2); }
+    
+    /* Video background adjustments */
+    .video-desktop, .video-mobile {
+      position: fixed;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    @media (min-width: 1025px) {
+      .video-desktop { display: block; }
+      .video-mobile { display: none; }
+    }
+    
+    @media (max-width: 1024px) {
+      .video-desktop { display: none; }
+      .video-mobile { display: block; }
+    }
+    
+    .overlay { 
+      position: fixed; 
+      inset: 0; 
+      background: rgba(0,0,0,.55); 
+      z-index: -1; 
+    }
+    
+    /* Hero section adjustments */
+    .hero { 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: left; 
+      align-items: left; 
+      text-align: left; 
+      min-height: 80vh; 
+      padding-top: 120px; 
+      width: 100%;
+    }
+    
+    .hero h1 { 
+      font-family: 'Dancing Script', cursive; 
+      font-size: 84px; 
+      color: #DAA520; 
+      margin-bottom: 12px; 
+    }
+    
+    .hero .tagline { 
+      font-size: 22px; 
+      font-weight: 500; 
+      color: #fff; 
+      letter-spacing: 1px; 
+      max-width: 850px; 
+      margin: 0 auto; 
+    }
+    
+    /* Navbar adjustments */
+    .navbar { 
+      background-color: transparent; 
+      position: relative; 
+      z-index: 1000; 
+      width: 100%;
+    }
+    
+    .navbar .nav-link { 
+      color: white; 
+      font-weight: 500; 
+    }
+    
+    .navbar .nav-link:hover, 
+    .navbar .nav-link:focus { 
+      color: #FFD700; 
+    }
+    
+    .navbar-toggler { 
+      border-color: rgba(255,255,255,0.2); 
+    }
+    
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 215, 0, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
@@ -61,7 +143,7 @@
       height: 100%;
     }
 
-    /* Nav Buttons */
+    /* Mobile navbar adjustments */
     @media (max-width: 991.98px) {
       .navbar-collapse {
         background-color: black;
@@ -71,7 +153,7 @@
         position: absolute;
         top: 100%;
         right: 0;
-        width: 70vw;
+        width: 100%;
         max-width: 400px;
         border-radius: 0;
       }
@@ -117,7 +199,7 @@
       display: block;
     }
     
-    /* Logo */
+    /* Logo adjustments */
     .studio-logo {
       filter: brightness(1.8);
     }
@@ -135,7 +217,7 @@
       width: auto;
     }
 
-    /* Mobile adjustments */
+    /* Mobile logo adjustments */
     @media (max-width: 768px) {
       .studio-logo {
         max-height: 70px;
@@ -194,13 +276,9 @@
     .navbar-toggler-icon::after {
       top: 8px;
     }
-
-    /* Mobile View */
+    
+    /* Mobile View adjustments */
     @media (max-width: 767.98px) {
-      body {
-        overflow-x: hidden;
-      }
-      
       .mobile-center-text {
         align-items: center !important;
         text-align: center !important;
@@ -210,37 +288,40 @@
         font-size: 2.9rem !important;
         margin-left: 0 !important;
         margin-top: 40px !important;
-        padding: 10px 15px;
+        padding: 0 15px !important;
+        width: 100%;
       }
 
       .tagline-text {
         font-size: 1.1rem !important;
         margin-left: 0 !important;
         margin-top: 10px !important;
-        padding: 0 20px;
+        padding: 0 15px !important;
+        width: 100%;
       }
       
-      .hero {
-        min-height: 60vh;
-        padding-top: 80px;
+      /* Remove horizontal gaps in content */
+      .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
       }
       
       .info-card {
-        max-width: 95% !important;
-        margin: 20px auto !important;
-        padding: 15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 0 !important;
+        width: 100%;
       }
       
-      .gallery-contact-section {
-        padding: 40px 0 !important;
-      }
-      
-      .follow-text {
-        font-size: 35px !important;
+      .gallery-contact-section .container {
+        padding-left: 15px;
+        padding-right: 15px;
       }
       
       .gallery-contact-section .col-md-6 {
-        margin-bottom: 30px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 20px;
       }
     }
 
@@ -258,30 +339,16 @@
     .info-card {
       border-radius: 1px !important;
     }
-
-    /* Video Background */
-    .video-desktop, .video-mobile {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    /* Show desktop video only on big screens */
-    @media (min-width: 1025px) {
-      .video-desktop { display: block; }
-      .video-mobile { display: none; }
-    }
-
-    /* Show mobile video only on small screens */
-    @media (max-width: 1024px) {
-      .video-desktop { display: none; }
-      .video-mobile { display: block; }
+    
+    /* Follow Us Section adjustments */
+    .gallery-contact-section {
+      background-color: grey;
+      color: white;
+      padding: 60px 0;
+      position: relative;
+      top: -1px;
     }
     
-    /* Follow Us Section */
     .follow-text {
       font-family: 'Great Vibes', cursive;
       font-size: 60px;
@@ -311,7 +378,6 @@
       animation: text-glow 2s ease-in-out infinite;
     }
     
-    /* Text glow animation */
     @keyframes text-glow {
       0% {
         text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
@@ -331,7 +397,6 @@
       }
     }
     
-    /* Hover effect */
     .glow-text-button:hover {
       color: #FFD700;
       text-shadow: 0 0 10px rgba(255, 215, 0, 1),
@@ -341,7 +406,6 @@
       transform: translateY(-5px);
     }
     
-    /* Add a subtle underline that appears on hover */
     .glow-text-button::after {
       content: '';
       position: absolute;
@@ -358,13 +422,12 @@
       width: 100%;
     }
     
-    /* Mobile adjustment - move section slightly to bottom */
+    /* Mobile adjustments for Follow Us Section */
     @media (max-width: 768px) {
       .gallery-contact-section {
         margin-top: 1px;
       }
       
-      /* Reduce animation intensity on mobile */
       .glow-text-button {
         animation: text-glow 2s ease-in-out infinite;
       }
@@ -372,35 +435,39 @@
       .glow-text-button:hover {
         transform: translateY(-3px);
       }
+      
+      .follow-text {
+        font-size: 45px;
+      }
     }
     
+    /* Hover effect for images */
     .hover-effect {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+    
     .hover-effect:hover {
-      transform: scale(1.05); 
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
     
-    @media (max-width: 768px) {
-      .logo-container a {
-        display: inline-block;
-        position: relative;
-      }
-      .logo-container a::before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        bottom: -10px;
-        left: -10px;
-        right: -10px;
-      }
+    /* Logo link adjustments */
+    .logo-container a {
+      display: inline-block;
+      position: relative;
+    }
+    
+    .logo-container a::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      bottom: -10px;
+      left: -10px;
+      right: -10px;
     }
   </style>
 </head>
 <body>
-
   <!-- Desktop Video -->
   <video id="bg-video-desktop" class="video-desktop" autoplay muted loop playsinline>
     <source src="nano combination brows.mp4" type="video/mp4" />
@@ -457,7 +524,7 @@
   </header>
 
   <div class="col-12 col-md-12 d-flex flex-column align-items-right text-right mb-6 mobile-center-text">
-    <h1 class="fw-bold heading-text slide-up" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #DAA520; margin-top: 80px; margin-left: 35px; padding: 15px 200px;">
+    <h1 class="fw-bold heading-text slide-up" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #DAA520; margin-top: 80px; margin-left: 35px; padding: 15 200;">
       Nano Combination Brows
     </h1>
      
@@ -472,491 +539,358 @@
       <h2 style="color:#DAA520; margin-left:38px;">Nano Combination Brows</h2>
       <div style="margin-left: 42px;">
         <p>Microblading: Also known as eyebrow embroidery, micro-stroking, or 3D brows, this manual method enhances or completely reshapes your eyebrows with delicate, hair-like strokes.</p>
-    
+  
         <p>Using precision tools and high-quality pigments, we implant pigment into the upper dermal layer of the skin, mimicking real eyebrow hairs. The result? Brows that look effortlessly natural and beautifully defined—perfect for those with sparse brows, uneven arches, or anyone looking to save time on daily makeup.</p>
-    
+
         <p><strong>Why Choose Browfairy PMU for Microshading?</strong></p>
-        
+  
         <ul style="padding-left: 20px;">
           <li>Expert artistry by Ridhima – a certified permanent makeup specialist known for precision and aesthetic symmetry.</li>
           <li>We tailor each brow shape to match your facial structure, skin tone, and personal style.</li>
           <li>We use only top-tier, skin-safe pigments and sterilized tools for safety and long-lasting results.</li>
           <li>Stay on trend with the latest microblading styles, including fluffy brows, soft shading, and hybrid looks that blend microblading with ombré effects.</li>
         </ul>
-    
+
         <p>Whether you're looking to subtly enhance your natural brows or want a dramatic transformation, microshading at Browfairy PMU ensures you wake up with perfect brows—every day.</p>
-    
+
         <p>📍Located in the heart of Hyderabad, book your consultation today to begin your brow journey with the city's most trusted PMU studio.</p>
       </div>
     </div>
   </div>
 
   <!-- Follow Us Section -->
-  <section class="gallery-contact-section" style="background-color: grey; color: white; padding: 60px 0; position: relative; top: -1px;">
+  <section class="gallery-contact-section">
     <div class="container">
-        <div class="row align-items-start g-5">
-          <!-- Left Column: Images -->
-          <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
-            <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-              <img src="service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+      <div class="row align-items-start g-5">
+        <!-- Left Column: Images -->
+        <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
+          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
+            <img src="service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+          </div>
+          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
+            <img src="service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+          </div>
+        </div>
+
+        <!-- Right Column: Follow Us Info -->
+        <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
+          <div class="follow-text">Follow Us</div>
+
+          <!-- Phone -->
+          <div class="text-center">
+            <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
+            <strong style="font-size: 25px;">PHONE</strong><br>
+            <a href="tel:+919908063645" class="glow-text-button">+91 9908063645</a>
+            <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
+          
+          <!-- Instagram -->
+          <div class="text-center">
+            <div style="font-size: 25px; color: white;">
+              <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
             </div>
-            <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-              <img src="service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
+
+            <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
+              <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
+                 target="_blank" 
+                 class="glow-text-button">
+                @browfairy_pmustudio
+              </a>
             </div>
+
+            <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
           </div>
 
-          <!-- Right Column: Follow Us Info -->
-          <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
-            <div class="follow-text">Follow Us</div>
-
-            <!-- Phone -->
-            <div class="text-center">
-              <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
-              <strong style="font-size: 25px;">PHONE</strong><br>
-              <a href="tel:+919908063645" class="glow-text-button">+91 9908063645</a>
-              <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
-            </div>
-            
-            <!-- Instagram -->
-            <div class="text-center">
-              <div style="font-size: 25px; color: white;">
-                <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
-              </div>
-
-              <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
-                <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
-                   target="_blank" 
-                   class="glow-text-button">
-                  @browfairy_pmustudio
-                </a>
-              </div>
-
-              <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
-            </div>
-
-            <!-- Email -->
-            <div class="text-center">
-              <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
-              <strong style="font-size: 22px;">Email</strong><br>
-              <a href="mailto:ridhimas.browfairy@gmail.com" class="glow-text-button">ridhimas.browfairy@gmail.com</a>
-              <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
-            </div>
+          <!-- Email -->
+          <div class="text-center">
+            <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
+            <strong style="font-size: 22px;">Email</strong><br>
+            <a href="mailto:ridhimas.browfairy@gmail.com" class="glow-text-button">ridhimas.browfairy@gmail.com</a>
+            <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- CHAT BOT CODE -->
   <button class="chat-icon-button" onclick="openChat()">
-      <i class="fas fa-comment-dots"></i>
+    <i class="fas fa-comment-dots"></i>
   </button>
 
   <div id="chatbot-popup">
-      <header>
-          <div class="header-content">
-              <span class="header-title">Browfairy</span>
-              <span class="header-tip">For accurate info, verify with us.</span>
-          </div>
-          <span class="close-btn" onclick="closeChat()">&times;</span>
-      </header>
-      <div id="chat-content"></div>
-      <div class="chat-footer">
-          <input type="text" id="chat-input" placeholder="Type your message...">
-          <div class="chat-footer-controls">
-              <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
-              <span class="powered-by">Powered by www.HyperionAI Solution.com</span>
-          </div>
+    <header>
+      <div class="header-content">
+        <span class="header-title">Browfairy</span>
+        <span class="header-tip">For accurate info, verify with us.</span>
       </div>
+      <span class="close-btn" onclick="closeChat()">&times;</span>
+    </header>
+    <div id="chat-content"></div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <div class="chat-footer-controls">
+        <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+        <span class="powered-by">Powered by www.HyperionAI Solution.com</span>
+      </div>
+    </div>
   </div>
 
   <style>
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
+    .chat-icon-button {
+      background-color: goldenrod;
+      color: white;
+      width: 70px;
+      height: 70px;
+      font-size: 30px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      position: fixed;
+      top: 150px;
+      right: 50px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #chatbot-popup {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #chatbot-popup.active {
+      display: flex;
+    }
+
+    #chatbot-popup header {
+      background: black;
+      color: white;
+      padding: 5px 10px;
+      font-size: 13px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .header-title {
+      font-weight: bold;
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    .header-tip {
+      font-size: 10px;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    #chatbot-popup header .close-btn {
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    #chat-content {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    #chat-input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      pointer-events: none;
+    }
+
+    #chatbot-popup.active #chat-input {
+      pointer-events: auto;
+    }
+
+    .chat-footer {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-footer-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .clear-btn {
+      background-color: #ccc;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .powered-by {
+      font-size: 10px;
+      color: #666;
+      font-style: italic;
+    }
+
+    .chat-message {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .user-message {
+      justify-content: flex-start;
+    }
+
+    .bot-message {
+      justify-content: flex-end;
+    }
+
+    .message-bubble {
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
+    .user-bubble {
+      background-color: #f1f1f1;
+      color: #000;
+    }
+
+    .bot-bubble {
+      background-color: rgba(255, 215, 0, 0.15);
+      color: #333;
+    }
+
+    .typing {
+      font-style: italic;
+      opacity: 0.6;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .quick-reply-btn {
+      background: #eee;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .contact-link {
+      text-decoration: underline;
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    @media (max-width: 767px) {
       .chat-icon-button {
-          background-color: goldenrod;
-          color: white;
-          width: 70px;
-          height: 70px;
-          font-size: 30px;
-          border: none;
-          border-radius: 50%;
-          cursor: pointer;
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-          position: fixed;
-          top: 150px;
-          right: 50px;
-          z-index: 999;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        top: 100px;
+        right: 18px;
+        left: auto;
       }
 
       #chatbot-popup {
-          display: none;
-          position: fixed;
-          bottom: 100px;
-          right: 20px;
-          width: 300px;
-          height: 400px;
-          background: white;
-          border-radius: 16px;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-          z-index: 9999;
-          flex-direction: column;
-          overflow: hidden;
+        width: 250px;
+        height: 350px;
+        bottom: 80px;
+        right: 10px;
+        left: auto;
       }
-
-      #chatbot-popup.active {
-          display: flex;
-      }
-
+      
+      /* Mobile header styling to match the image */
       #chatbot-popup header {
-          background: black;
-          color: white;
-          padding: 5px 10px;
-          font-size: 13px;
-          height: 30px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-top-left-radius: 15px;
-          border-top-right-radius: 15px;
+        padding: 4px 8px;
+        height: 32px;
       }
-
+      
       .header-content {
-          display: flex;
-          align-items: center;
-          flex: 1;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: hidden;
       }
-
+      
       .header-title {
-          font-weight: bold;
-          margin-right: 8px;
-          white-space: nowrap;
+        font-size: 13px;
+        font-weight: bold;
+        white-space: nowrap;
+        margin-right: 6px;
       }
-
+      
       .header-tip {
-          font-size: 10px;
-          opacity: 0.9;
-          white-space: nowrap;
+        font-size: 9px;
+        opacity: 0.9;
+        white-space: nowrap;
       }
-
-      #chatbot-popup header .close-btn {
-          font-size: 14px;
-          cursor: pointer;
-          margin-left: 5px;
+      
+      .close-btn {
+        font-size: 16px !important;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        flex-shrink: 0;
       }
-
-      #chat-content {
-          flex: 1;
-          padding: 10px;
-          overflow-y: auto;
-          font-size: 14px;
+      
+      .close-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3);
       }
-
-      #chat-input {
-          width: 100%;
-          padding: 8px;
-          border-radius: 8px;
-          border: 1px solid #ccc;
-          margin-top: 5px;
-          pointer-events: none;
-      }
-
-      #chatbot-popup.active #chat-input {
-          pointer-events: auto;
-      }
-
-      .chat-footer {
-          padding: 10px;
-          border-top: 1px solid #ddd;
-          background-color: #f9f9f9;
-          display: flex;
-          flex-direction: column;
-      }
-
-      .chat-footer-controls {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: 5px;
-      }
-
-      .clear-btn {
-          background-color: #ccc;
-          border: none;
-          padding: 5px 10px;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 12px;
-      }
-
+      
       .powered-by {
-          font-size: 10px;
-          color: #666;
-          font-style: italic;
+        font-size: 8px;
       }
-
-      .chat-message {
-          display: flex;
-          margin-bottom: 10px;
-      }
-
-      .user-message {
-          justify-content: flex-start;
-      }
-
-      .bot-message {
-          justify-content: flex-end;
-      }
-
-      .message-bubble {
-          padding: 8px 12px;
-          border-radius: 12px;
-          max-width: 70%;
-          word-wrap: break-word;
-      }
-
-      .user-bubble {
-          background-color: #f1f1f1;
-          color: #000;
-      }
-
-      .bot-bubble {
-          background-color: rgba(255, 215, 0, 0.15);
-          color: #333;
-      }
-
-      .typing {
-          font-style: italic;
-          opacity: 0.6;
-      }
-
-      .quick-replies {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-          margin-top: 10px;
-      }
-
-      .quick-reply-btn {
-          background: #eee;
-          padding: 5px 10px;
-          border-radius: 8px;
-          cursor: pointer;
-          font-size: 12px;
-      }
-
-      .contact-link {
-          text-decoration: underline;
-          color: #0066cc;
-          font-weight: bold;
-      }
-
-      @media (max-width: 767px) {
-          .chat-icon-button {
-              width: 50px;
-              height: 50px;
-              font-size: 20px;
-              top: 100px;
-              right: 18px;
-              left: auto;
-          }
-
-          #chatbot-popup {
-              width: 250px;
-              height: 350px;
-              bottom: 80px;
-              right: 10px;
-              left: auto;
-          }
-          
-          /* Mobile header styling to match the image */
-          #chatbot-popup header {
-              padding: 4px 8px;
-              height: 32px;
-          }
-          
-          .header-content {
-              flex: 1;
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              overflow: hidden;
-          }
-          
-          .header-title {
-              font-size: 13px;
-              font-weight: bold;
-              white-space: nowrap;
-              margin-right: 6px;
-          }
-          
-          .header-tip {
-              font-size: 9px;
-              opacity: 0.9;
-              white-space: nowrap;
-          }
-          
-          .close-btn {
-              font-size: 16px !important;
-              cursor: pointer;
-              width: 24px;
-              height: 24px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 50%;
-              background-color: rgba(255, 255, 255, 0.2);
-              flex-shrink: 0;
-          }
-          
-          .close-btn:hover {
-              background-color: rgba(255, 255, 255, 0.3);
-          }
-          
-          .powered-by {
-              font-size: 8px;
-          }
-      }
+    }
   </style>
-
-  <script>
-      const responses = {
-          "hi": "Hi, I am your Browfairy. ",
-          "hello": "Hello! Feel free to ask me any questions about our services. For accurate info, it's always best to call or WhatsApp us.",
-          "timings": "We are open from 11 AM to 8 PM every day.",
-          "what are your timings": "We are open from 11 AM to 8 PM every day.",
-          "location": "It's located in Kondapur, Hyderabad.",
-          "are weekends open": "Yes, we are open all days. But you need to book a prior appointment.",
-          "how can i book my appointment": "You can call/WhatsApp us on +91 9908063645 for booking the appointment.",
-          "how many sessions for eyebrows": "Two sessions are typically needed for eyebrows. The first session creates the shape and color, while the second perfects the result.",
-          "how many sessions for lips": "2-3 sessions are required for lips procedures depending on the skin type.",
-          "how long does the process take": "A procedure typically takes between 2-3 hours.",
-          "can we have a phone consultation": "Yes, absolutely. Please call/WhatsApp us on +91 9908063645.",
-          "is it permanent": "It's a semi-permanent makeup that lasts for at least 2-3 years. After that, a touch-up session will maintain the results.",
-          "how many sessions for long lasting results": "Two sessions are required for long-lasting results.",
-          "does it hurt": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
-          "is it painful": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
-          "what is pmu": "PMU stands for Permanent Makeup, a cosmetic tattoo technique that enhances features like eyebrows, lips, and eyes using pigments implanted into the skin. It saves time, boosts confidence, and gives a long-lasting polished look.",
-          "what is microblading": "Microblading is a semi-permanent eyebrow technique that uses fine needles to create hair-like strokes, enhancing shape and fullness. Results last 1-2 years with proper care.",
-          "is it safe": "Yes, PMU is safe when performed by a trained professional in a sterile environment. However, it may not be suitable for everyone like pregnant women, breastfeeding mothers, or those on blood thinner medications.",
-          "how long does a lip procedure last": "It typically takes 2-3 hours for the procedure and the results last for at least 2-3 years.",
-          "default": "Please call/WhatsApp us on +91 9908063645 or DM on Instagram to get accurate responses."
-      };
-
-      function openChat() {
-          const chatPopup = document.getElementById('chatbot-popup');
-          const chatContent = document.getElementById('chat-content');
-
-          chatPopup.classList.add('active');
-
-          if (!chatContent.innerHTML.includes('Welcome to Browfairy!')) {
-              appendMessage('Bot', 'Welcome to Browfairy! I can assist you with FAQs and service-related questions.');
-              showQuickReplies(['What is microblading', 'Is it safe', 'Does it hurt']);
-          }
-      }
-
-      function closeChat() {
-          document.getElementById('chatbot-popup').classList.remove('active');
-      }
-
-      function clearChat() {
-          document.getElementById('chat-content').innerHTML = '';
-      }
-
-      document.getElementById('chat-input').addEventListener('keypress', function(event) {
-          if (event.key === 'Enter') {
-              let userInput = this.value.trim().toLowerCase();
-              if (userInput === '') return;
-
-              appendMessage('You', userInput);
-              this.value = '';
-              showTyping();
-
-              let botReplyContent = responses[userInput] || responses["default"];
-              
-              // Add contact links with underlines
-              let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
-              
-              let botReply = botReplyContent + contactLinks;
-
-              setTimeout(() => {
-                  removeTyping();
-                  appendMessage('Fairy', botReply);
-              }, 1000);
-          }
-      });
-
-      function appendMessage(sender, message) {
-          const chatContent = document.getElementById('chat-content');
-          const messageDiv = document.createElement('div');
-          const bubbleDiv = document.createElement('div');
-
-          messageDiv.classList.add('chat-message');
-          bubbleDiv.classList.add('message-bubble');
-
-          if (sender === 'You') {
-              messageDiv.classList.add('user-message');
-              bubbleDiv.classList.add('user-bubble');
-          } else {
-              messageDiv.classList.add('bot-message');
-              bubbleDiv.classList.add('bot-bubble');
-          }
-
-          bubbleDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
-          messageDiv.appendChild(bubbleDiv);
-          chatContent.appendChild(messageDiv);
-          chatContent.scrollTop = chatContent.scrollHeight;
-      }
-
-      function showTyping() {
-          const chatContent = document.getElementById('chat-content');
-          const typingDiv = document.createElement('div');
-          typingDiv.id = 'typing-indicator';
-          typingDiv.className = 'chat-message bot-message';
-          typingDiv.innerHTML = `<div class='message-bubble bot-bubble typing'>Typing...</div>`;
-          chatContent.appendChild(typingDiv);
-          chatContent.scrollTop = chatContent.scrollHeight;
-      }
-
-      function removeTyping() {
-          const typingDiv = document.getElementById('typing-indicator');
-          if (typingDiv) typingDiv.remove();
-      }
-
-      function showQuickReplies(options) {
-          const chatContent = document.getElementById('chat-content');
-          const repliesDiv = document.createElement('div');
-          repliesDiv.className = 'quick-replies';
-
-          options.forEach(option => {
-              const btn = document.createElement('div');
-              btn.className = 'quick-reply-btn';
-              btn.innerText = option;
-              btn.onclick = function() {
-                  document.getElementById('chat-input').value = option;
-                  document.getElementById('chat-input').focus();
-              };
-              repliesDiv.appendChild(btn);
-          });
-
-          chatContent.appendChild(repliesDiv);
-          chatContent.scrollTop = chatContent.scrollHeight;
-      }
-
-      document.addEventListener('click', function(event) {
-          const chatPopup = document.getElementById('chatbot-popup');
-          const chatButton = document.querySelector('.chat-icon-button');
-          if (chatPopup.classList.contains('active') && !chatPopup.contains(event.target) && !chatButton.contains(event.target)) {
-              closeChat();
-          }
-      });
-  </script>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -987,28 +921,28 @@
   </script>
 
   <script>
-  function animateOnLoad() {
+    function animateOnLoad() {
       const animatedElements = document.querySelectorAll('.slide-up');
       let delay = 0;
 
       // Reset the elements by removing the 'is-visible' class
       animatedElements.forEach(element => {
-          element.classList.remove('is-visible');
+        element.classList.remove('is-visible');
       });
 
       // Animate the elements with a delay
       animatedElements.forEach(element => {
-          setTimeout(() => {
-              element.classList.add('is-visible');
-          }, delay);
-          
-          // Stagger the animation for a sequential effect
-          delay += 300; 
+        setTimeout(() => {
+          element.classList.add('is-visible');
+        }, delay);
+        
+        // Stagger the animation for a sequential effect
+        delay += 300; 
       });
-  }
+    }
 
-  // Run the function when the page loads
-  document.addEventListener('DOMContentLoaded', animateOnLoad);
+    // Run the function when the page loads
+    document.addEventListener('DOMContentLoaded', animateOnLoad);
   </script>
   
   <script>
@@ -1024,6 +958,139 @@
       document.querySelectorAll(".slide-on-scroll").forEach((el) => {
         observer.observe(el);
       });
+    });
+  </script>
+
+  <script>
+    const responses = {
+      "hi": "Hi, I am your Browfairy. ",
+      "hello": "Hello! Feel free to ask me any questions about our services. For accurate info, it's always best to call or WhatsApp us.",
+      "timings": "We are open from 11 AM to 8 PM every day.",
+      "what are your timings": "We are open from 11 AM to 8 PM every day.",
+      "location": "It's located in Kondapur, Hyderabad.",
+      "are weekends open": "Yes, we are open all days. But you need to book a prior appointment.",
+      "how can i book my appointment": "You can call/WhatsApp us on +91 9908063645 for booking the appointment.",
+      "how many sessions for eyebrows": "Two sessions are typically needed for eyebrows. The first session creates the shape and color, while the second perfects the result.",
+      "how many sessions for lips": "2-3 sessions are required for lips procedures depending on the skin type.",
+      "how long does the process take": "A procedure typically takes between 2-3 hours.",
+      "can we have a phone consultation": "Yes, absolutely. Please call/WhatsApp us on +91 9908063645.",
+      "is it permanent": "It's a semi-permanent makeup that lasts for at least 2-3 years. After that, a touch-up session will maintain the results.",
+      "how many sessions for long lasting results": "Two sessions are required for long-lasting results.",
+      "does it hurt": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
+      "is it painful": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
+      "what is pmu": "PMU stands for Permanent Makeup, a cosmetic tattoo technique that enhances features like eyebrows, lips, and eyes using pigments implanted into the skin. It saves time, boosts confidence, and gives a long-lasting polished look.",
+      "what is microblading": "Microblading is a semi-permanent eyebrow technique that uses fine needles to create hair-like strokes, enhancing shape and fullness. Results last 1-2 years with proper care.",
+      "is it safe": "Yes, PMU is safe when performed by a trained professional in a sterile environment. However, it may not be suitable for everyone like pregnant women, breastfeeding mothers, or those on blood thinner medications.",
+      "how long does a lip procedure last": "It typically takes 2-3 hours for the procedure and the results last for at least 2-3 years.",
+      "default": "Please call/WhatsApp us on +91 9908063645 or DM on Instagram to get accurate responses."
+    };
+
+    function openChat() {
+      const chatPopup = document.getElementById('chatbot-popup');
+      const chatContent = document.getElementById('chat-content');
+
+      chatPopup.classList.add('active');
+
+      if (!chatContent.innerHTML.includes('Welcome to Browfairy!')) {
+        appendMessage('Bot', 'Welcome to Browfairy! I can assist you with FAQs and service-related questions.');
+        showQuickReplies(['What is microblading', 'Is it safe', 'Does it hurt']);
+      }
+    }
+
+    function closeChat() {
+      document.getElementById('chatbot-popup').classList.remove('active');
+    }
+
+    function clearChat() {
+      document.getElementById('chat-content').innerHTML = '';
+    }
+
+    document.getElementById('chat-input').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        let userInput = this.value.trim().toLowerCase();
+        if (userInput === '') return;
+
+        appendMessage('You', userInput);
+        this.value = '';
+        showTyping();
+
+        let botReplyContent = responses[userInput] || responses["default"];
+        
+        // Add contact links with underlines
+        let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
+        
+        let botReply = botReplyContent + contactLinks;
+
+        setTimeout(() => {
+          removeTyping();
+          appendMessage('Fairy', botReply);
+        }, 1000);
+      }
+    });
+
+    function appendMessage(sender, message) {
+      const chatContent = document.getElementById('chat-content');
+      const messageDiv = document.createElement('div');
+      const bubbleDiv = document.createElement('div');
+
+      messageDiv.classList.add('chat-message');
+      bubbleDiv.classList.add('message-bubble');
+
+      if (sender === 'You') {
+        messageDiv.classList.add('user-message');
+        bubbleDiv.classList.add('user-bubble');
+      } else {
+        messageDiv.classList.add('bot-message');
+        bubbleDiv.classList.add('bot-bubble');
+      }
+
+      bubbleDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+      messageDiv.appendChild(bubbleDiv);
+      chatContent.appendChild(messageDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    function showTyping() {
+      const chatContent = document.getElementById('chat-content');
+      const typingDiv = document.createElement('div');
+      typingDiv.id = 'typing-indicator';
+      typingDiv.className = 'chat-message bot-message';
+      typingDiv.innerHTML = `<div class='message-bubble bot-bubble typing'>Typing...</div>`;
+      chatContent.appendChild(typingDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    function removeTyping() {
+      const typingDiv = document.getElementById('typing-indicator');
+      if (typingDiv) typingDiv.remove();
+    }
+
+    function showQuickReplies(options) {
+      const chatContent = document.getElementById('chat-content');
+      const repliesDiv = document.createElement('div');
+      repliesDiv.className = 'quick-replies';
+
+      options.forEach(option => {
+        const btn = document.createElement('div');
+        btn.className = 'quick-reply-btn';
+        btn.innerText = option;
+        btn.onclick = function() {
+          document.getElementById('chat-input').value = option;
+          document.getElementById('chat-input').focus();
+        };
+        repliesDiv.appendChild(btn);
+      });
+
+      chatContent.appendChild(repliesDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    document.addEventListener('click', function(event) {
+      const chatPopup = document.getElementById('chatbot-popup');
+      const chatButton = document.querySelector('.chat-icon-button');
+      if (chatPopup.classList.contains('active') && !chatPopup.contains(event.target) && !chatButton.contains(event.target)) {
+        closeChat();
+      }
     });
   </script>
 </body>
