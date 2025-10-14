@@ -581,6 +581,25 @@
 <!-- ===== HERO SECTION ===== -->
 <main class="main-content">
   <section class="hero">
+    <!-- Button container positioned at the top for mobile -->
+    <div class="container text-center mobile-buttons-top">
+      <div class="d-flex justify-content-center flex-wrap">
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz"
+           target="_blank"
+           class="social-btn">
+          <i class="fa-brands fa-instagram me-2"></i> Instagram
+        </a>
+        
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919908063645"
+           target="_blank"
+           class="social-btn">
+          <i class="fa-brands fa-whatsapp me-2"></i> +91 9908063645
+        </a>
+      </div>
+    </div>
+    
     <div class="container text-center">
       <!-- Text wrapper for positioning -->
       <div class="hero-text-wrapper">
@@ -590,8 +609,8 @@
       </div>
     </div>
 
-    <!-- Button container positioned at the bottom -->
-    <div class="container text-center">
+    <!-- Button container positioned at the bottom for desktop -->
+    <div class="container text-center desktop-buttons-bottom">
       <div class="d-flex justify-content-center flex-wrap">
         <!-- Instagram Button -->
         <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz"
@@ -781,12 +800,26 @@
       border: 2px solid rgba(255, 215, 0, 0.5);
     }
     
-    /* Position buttons at bottom of hero section on mobile - moved slightly higher */
-    .hero .container:last-child {
+    /* Position buttons at top of hero section on mobile */
+    .mobile-buttons-top {
       position: absolute;
-      bottom: -0.05px; /* Changed from 120px to 100px */
+      top: 20px; /* Adjust this value as needed */
       left: 0;
       right: 0;
+      z-index: 10;
+    }
+    
+    /* Hide desktop buttons on mobile */
+    .desktop-buttons-bottom {
+      display: none;
+    }
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 769px) {
+    /* Hide mobile buttons on desktop */
+    .mobile-buttons-top {
+      display: none;
     }
   }
 </style>
@@ -814,7 +847,6 @@
     });
   });
 </script>
-
 
 <!-- MARQUEE SECTION -->
 <div class="marquee-container">
@@ -2397,6 +2429,7 @@
   </script>
 </body>
 </html>
+
 
 
 
