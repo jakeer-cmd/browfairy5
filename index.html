@@ -2057,8 +2057,7 @@
   </style>
 
 
-  
-                                     <!-- CHAT BOT CODE -->
+  <!-- CHAT BOT CODE -->
     <button class="chat-icon-button" onclick="openChat()">
         <i class="fas fa-comment-dots"></i>
     </button>
@@ -2076,7 +2075,10 @@
             <input type="text" id="chat-input" placeholder="Type your message...">
             <div class="chat-footer-controls">
                 <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
-                <span class="powered-by">Powered by www.HyperionAI Solution.com</span>
+                <a href="https://www.hyperionai.io/" target="_blank" class="powered-by">
+                    <span class="powered-by-text">Powered by</span>
+                    <span class="powered-by-url">https://www.hyperionai.io/</span>
+                </a>
             </div>
         </div>
     </div>
@@ -2127,7 +2129,7 @@
         }
 
         #chatbot-popup header {
-            background: goldenrod;
+            background: black; /* Changed from goldenrod to black */
             color: white;
             padding: 5px 10px;
             font-size: 13px;
@@ -2207,10 +2209,29 @@
             font-size: 12px;
         }
 
+        .clear-btn:hover {
+            background-color: #bbb;
+        }
+
         .powered-by {
             font-size: 10px;
-            color: #666;
             font-style: italic;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .powered-by-text {
+            color: black;
+            margin-right: 4px;
+        }
+
+        .powered-by-url {
+            color: blue;
+        }
+
+        .powered-by:hover .powered-by-url {
+            text-decoration: underline;
         }
 
         .chat-message {
@@ -2329,6 +2350,11 @@
             
             .close-btn:hover {
                 background-color: rgba(255, 255, 255, 0.3);
+            }
+            
+            .clear-btn {
+                font-size: 10px;
+                padding: 4px 8px;
             }
             
             .powered-by {
@@ -2471,6 +2497,7 @@
     </script>
 </body>
 </html>
+
 
 
 
