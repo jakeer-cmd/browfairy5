@@ -337,7 +337,7 @@
       }
 
       .hero .row.justify-content-center {
-        position: absolute;
+        position: relative;
         bottom: 30px;
         right: 250px;
         flex-direction: row;
@@ -763,24 +763,10 @@
       padding-bottom: 0;
     }
     
-    .mobile-buttons-top {
-      position: relative; /* This is the key change - from absolute to relative */
-      top: auto; /* Remove fixed positioning */
-      margin-top: 20px; /* Add some top margin */
-      z-index: 10;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 0 15px;
-      box-sizing: border-box;
-    }
-    
     .hero-text-wrapper {
       margin-top: 0;
       margin-bottom: 12px; /* Slightly reduced from 15px to 12px */
       padding-top: 5px;
-      text-align: center;
-      width: 100%;
     }
     
     .hero h1 {
@@ -812,6 +798,15 @@
       line-height: 50px;
       background-color: rgba(0, 0, 0, 0.8);
       border: 2px solid rgba(255, 215, 0, 0.5);
+    }
+    
+    /* Position buttons at top of hero section on mobile */
+    .mobile-buttons-top {
+      position: absolute;
+      top: 470px; /* Adjust this value as needed */
+      left: 0;
+      right: 0;
+      z-index: 10;
     }
     
     /* Hide desktop buttons on mobile */
@@ -2502,3 +2497,23 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
