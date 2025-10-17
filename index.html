@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
     .About-title { font-family: 'Lobster Two', cursive; }
@@ -399,8 +398,8 @@
       .video-mobile { display: block; }
     }
 
-    /* Mobile Full-Screen Fix - Ensuring consistency across all mobile devices */
-    @media (max-width: 1024px) {
+    /* Mobile Full-Screen Fix */
+    @media (max-width: 768px) {
       html, body {
         margin: 0 !important;
         padding: 0 !important;
@@ -409,18 +408,18 @@
       }
       
       .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         max-width: 100% !important;
       }
       
       .hero, .reviews-section, .gallery-contact-section, #services-page-content {
         margin-left: 0 !important;
         margin-right: 0 !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
       
       #faq-frame {
@@ -430,13 +429,13 @@
       }
       
       .row {
-        margin-left: -15px !important;
-        margin-right: -15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
       }
       
       .col-md-6, .col-12 {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
       
       .navbar {
@@ -452,9 +451,8 @@
       }
       
       .navbar-collapse {
-        width: 70vw !important;
-        max-width: 400px !important;
-        left: auto !important;
+        width: 100% !important;
+        left: 0 !important;
         right: 0 !important;
       }
       
@@ -479,11 +477,11 @@
       .mobile-services-container {
         width: 100% !important;
         margin: 0 !important;
-        padding: 20px 15px !important;
+        padding: 0 !important;
       }
       
       .mobile-service-card {
-        margin: 0 0 15px 0 !important;
+        margin: 0 !important;
         padding: 0 !important;
       }
       
@@ -494,117 +492,8 @@
       }
       
       .reviews-container {
-        padding: 20px 15px !important;
+        padding: 0 !important;
         margin: 0 !important;
-      }
-      
-      .review-card {
-        min-width: 280px !important;
-        max-width: 280px !important;
-        flex: 0 0 auto !important;
-      }
-    }
-    
-    /* Mobile-specific adjustments for consistency */
-    @media (max-width: 767px) {
-      .hero {
-        padding-top: 80px !important;
-        min-height: 80vh !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-      }
-      
-      .hero h1 {
-        font-size: 28px !important;
-        margin-bottom: 10px !important;
-      }
-      
-      .hero h2 {
-        font-size: 32px !important;
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-      }
-      
-      .hero p {
-        font-size: 18px !important;
-        margin-top: 10px !important;
-      }
-      
-      .mobile-buttons-top {
-        position: absolute !important;
-        top: 70% !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 10 !important;
-        padding: 0 20px !important;
-      }
-      
-      .social-btn {
-        width: 220px !important;
-        font-size: 16px !important;
-        padding: 12px 15px !important;
-      }
-      
-      .marquee-container {
-        height: 15vh !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-      }
-      
-      .marquee-text {
-        font-size: 12vw !important;
-      }
-      
-      .reviews-section {
-        padding: 30px 0 !important;
-      }
-      
-      .reviews-section h1 {
-        font-size: 32px !important;
-        margin-bottom: 20px !important;
-      }
-      
-      .gallery-contact-section {
-        padding: 40px 15px !important;
-        margin-top: 0 !important;
-      }
-      
-      .follow-text {
-        font-size: 40px !important;
-      }
-      
-      .gallery-contact-section .text-center {
-        margin-bottom: 25px !important;
-      }
-      
-      .gallery-contact-section i {
-        font-size: 25px !important;
-      }
-      
-      .gallery-contact-section strong {
-        font-size: 20px !important;
-      }
-      
-      .gallery-contact-section a {
-        font-size: 16px !important;
-      }
-      
-      .chat-icon-button {
-        width: 50px !important;
-        height: 50px !important;
-        font-size: 20px !important;
-        top: 100px !important;
-        right: 18px !important;
-      }
-      
-      #chatbot-popup {
-        width: 250px !important;
-        height: 350px !important;
-        bottom: 80px !important;
-        right: 10px !important;
       }
     }
   </style>
@@ -1362,10 +1251,8 @@
 
     /* Remove any body padding/margin that might cause white space */
     body {
-      margin: 0 !important;
-      padding: 0 !important;
-      width: 100% !important;
-      overflow-x: hidden !important;
+      margin: 0;
+      padding: 0;
     }
   }
 </style>
@@ -1927,7 +1814,7 @@
 
         <!-- Right Column: Follow Us Info -->
         <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
-          <div class="follow-text">Follow Us</div>
+          <div class="follow-text" style="font-size: 45px;">Follow Us</div>
 
           <!-- Phone -->
           <div class="text-center">
@@ -2610,3 +2497,24 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
