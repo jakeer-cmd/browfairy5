@@ -4,53 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Training Courses</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-        }
-        
-        /* Navigation Bar Styles */
-        .navbar {
-            background-color: #000;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .navbar-brand {
-            color: #FFD700;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        
-        .navbar-nav {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-item {
-            margin-left: 20px;
-        }
-        
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        
-        .nav-link:hover {
-            color: #FFD700;
         }
         
         .header {
@@ -91,56 +57,123 @@
             max-width: 600px;
             line-height: 1.6;
         }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 10px;
-            }
-            
-            .navbar-brand {
-                margin-bottom: 10px;
-            }
-            
-            .navbar-nav {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .nav-item {
-                margin: 0 10px;
-            }
+        
+        /* Custom navbar styles */
+        .navbar {
+            background-color: #000 !important;
+            padding: 10px 0;
+        }
+        
+        .navbar-brand {
+            color: #FFD700 !important;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .nav-link {
+            color: #fff !important;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #FFD700 !important;
+        }
+        
+        .navbar-toggler {
+            border: none;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .dropdown-menu {
+            background-color: #000;
+            border: none;
+        }
+        
+        .dropdown-item {
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #333;
+            color: #FFD700;
+        }
+        
+        .chev {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        
+        .has-dropdown {
+            position: relative;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #000;
+            min-width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .has-dropdown:hover .dropdown {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about2.html">About</a></li>
-          <li class="has-dropdown nav-item">
-            <a class="nav-link" href="#">Services <i class="fa-solid fa-chevron-down chev"></i></a>
-            <ul class="dropdown">
-              <li><a class="dropdown-item" href="Microblading2.html">Microblading</a></li>
-              <li><a class="dropdown-item" href="Combination brows2.html">Combination Brows</a></li>
-              <li><a class="dropdown-item" href="ombre-brows2.html">Ombré Powder Brows</a></li>
-              <li><a class="dropdown-item" href="Lip neutralization2.html">Lip Neutralization</a></li>
-              <li><a class="dropdown-item" href="Lip Blush2.html">Lip Blush</a></li>
-              <li><a class="dropdown-item" href="Lash liner2.html">Lash Liner</a></li>
-              <li><a class="dropdown-item" href="nano-hairstrokes2.html">Nano Hairstrokes Brows</a></li>
-              <li><a class="dropdown-item" href="Nano combination brows2.html">Nano Combination Brows</a></li>
-              <li><a class="dropdown-item" href="Lash lift and tint2.html">Lash Lift and Tint</a></li>
-              <li><a class="dropdown-item" href="Brow lamination and tint2.html">Brow Lamination and Tint</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="Online Training Courses2.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link" href="blogs2.html">Blogs</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact2.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="Faqs2.html">FAQS</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index2.html">Browfairy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about2.html">About</a></li>
+                    <li class="has-dropdown nav-item">
+                        <a class="nav-link" href="#">Services <i class="fa-solid fa-chevron-down chev"></i></a>
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="Microblading2.html">Microblading</a></li>
+                            <li><a class="dropdown-item" href="Combination brows2.html">Combination Brows</a></li>
+                            <li><a class="dropdown-item" href="ombre-brows2.html">Ombré Powder Brows</a></li>
+                            <li><a class="dropdown-item" href="Lip neutralization2.html">Lip Neutralization</a></li>
+                            <li><a class="dropdown-item" href="Lip Blush2.html">Lip Blush</a></li>
+                            <li><a class="dropdown-item" href="Lash liner2.html">Lash Liner</a></li>
+                            <li><a class="dropdown-item" href="nano-hairstrokes2.html">Nano Hairstrokes Brows</a></li>
+                            <li><a class="dropdown-item" href="Nano combination brows2.html">Nano Combination Brows</a></li>
+                            <li><a class="dropdown-item" href="Lash lift and tint2.html">Lash Lift and Tint</a></li>
+                            <li><a class="dropdown-item" href="Brow lamination and tint2.html">Brow Lamination and Tint</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="Online Training Courses2.html">Training</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs2.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact2.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Faqs2.html">FAQS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     <div class="header">
         Online Training Courses
@@ -800,6 +833,8 @@
             }
         });
     </script>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
