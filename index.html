@@ -608,6 +608,25 @@
         </a>
       </div>
     </div>
+    
+    <!-- Buttons positioned at bottom on desktop -->
+    <div class="container text-center desktop-buttons-bottom">
+      <div class="d-flex justify-content-center flex-wrap">
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz"
+           target="_blank"
+           class="social-btn">
+          <i class="fa-brands fa-instagram me-2"></i> Instagram
+        </a>
+        
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/919908063645"
+           target="_blank"
+           class="social-btn">
+          <i class="fa-brands fa-whatsapp me-2"></i> +91 9908063645
+        </a>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -792,6 +811,7 @@
       justify-content: center;
       gap: 15px;
       margin-top: auto;
+      padding: 20px 0;
     }
     
     /* Hide desktop buttons on mobile */
@@ -810,7 +830,7 @@
     /* Show desktop buttons at bottom */
     .desktop-buttons-bottom {
       position: relative;
-      bottom: 20px;
+      bottom: 0;
       left: 0;
       right: 0;
       z-index: 10;
@@ -818,6 +838,14 @@
       justify-content: center;
       gap: 15px;
       margin-top: auto;
+      padding: 20px 0;
+    }
+    
+    /* Adjust button size for desktop */
+    .social-btn {
+      width: 280px;
+      padding: 18px 20px;
+      font-size: 18px;
     }
   }
 </style>
@@ -2495,4 +2523,3 @@
     </script>
 </body>
 </html>
-
