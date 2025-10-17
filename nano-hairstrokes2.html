@@ -261,9 +261,18 @@
   
                                    
   
-                                    <!-- CHAT BOT CODE -->
-    <button class="chat-icon-button" onclick="openChat()">
-        <i class="fas fa-comment-dots"></i>
+                                 
+  <!-- CHAT BOT CODE -->
+    <button class="chat-icon-button" onclick="toggleChat()">
+        <div class="icon-container">
+            <!-- Using the local image file -->
+            <img id="chat-icon" src="images/icon.jpg" alt="Chat Icon" class="avatar-icon">
+            
+            <!-- Close icon for when chat is open -->
+            <div class="close-icon">&times;</div>
+        </div>
+        <!-- Notification badge -->
+        <div class="notification-badge">1</div>
     </button>
 
     <div id="chatbot-popup">
@@ -279,7 +288,10 @@
             <input type="text" id="chat-input" placeholder="Type your message...">
             <div class="chat-footer-controls">
                 <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
-                <span class="powered-by">Powered by www.HyperionAI Solution.com</span>
+                <a href="https://www.hyperionai.io/" target="_blank" class="powered-by">
+                    <span class="powered-by-text">Powered by</span>
+                    <span class="powered-by-url">www.hyperionai.io</span>
+                </a>
             </div>
         </div>
     </div>
@@ -292,7 +304,7 @@
         }
 
         .chat-icon-button {
-            background-color: goldenrod;
+            background-color: transparent;
             color: white;
             width: 70px;
             height: 70px;
@@ -308,6 +320,86 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+            overflow: visible;
+        }
+
+        .chat-icon-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-icon-button.new-message {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+
+        .icon-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .chat-icon-button.open .avatar-icon {
+            opacity: 0;
+        }
+
+        .chat-icon-button.open .close-icon {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .chat-icon-button.open {
+            background-color: black;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .chat-icon-button.new-message .notification-badge {
+            opacity: 1;
         }
 
         #chatbot-popup {
@@ -410,10 +502,29 @@
             font-size: 12px;
         }
 
+        .clear-btn:hover {
+            background-color: #bbb;
+        }
+
         .powered-by {
             font-size: 10px;
-            color: #666;
             font-style: italic;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .powered-by-text {
+            color: black;
+            margin-right: 4px;
+        }
+
+        .powered-by-url {
+            color: blue;
+        }
+
+        .powered-by:hover .powered-by-url {
+            text-decoration: underline;
         }
 
         .chat-message {
@@ -490,7 +601,7 @@
                 left: auto;
             }
             
-            /* Mobile header styling to match the image */
+            /* Mobile header styling */
             #chatbot-popup header {
                 padding: 4px 8px;
                 height: 32px;
@@ -534,8 +645,19 @@
                 background-color: rgba(255, 255, 255, 0.3);
             }
             
+            .clear-btn {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+            
             .powered-by {
                 font-size: 8px;
+            }
+            
+            .notification-badge {
+                width: 16px;
+                height: 16px;
+                font-size: 10px;
             }
         }
     </style>
@@ -564,11 +686,34 @@
             "default": "Please call/WhatsApp us on +91 9908063645 or DM on Instagram to get accurate responses."
         };
 
+        // Track chat state
+        let chatState = {
+            isOpen: false,
+            hasNewMessage: false,
+            unreadCount: 0
+        };
+
+        function toggleChat() {
+            if (chatState.isOpen) {
+                closeChat();
+            } else {
+                openChat();
+            }
+        }
+
         function openChat() {
             const chatPopup = document.getElementById('chatbot-popup');
             const chatContent = document.getElementById('chat-content');
+            const chatButton = document.querySelector('.chat-icon-button');
 
             chatPopup.classList.add('active');
+            chatButton.classList.add('open');
+            chatState.isOpen = true;
+            chatState.hasNewMessage = false;
+            chatState.unreadCount = 0;
+            
+            // Remove notification badge
+            chatButton.classList.remove('new-message');
 
             if (!chatContent.innerHTML.includes('Welcome to Browfairy!')) {
                 appendMessage('Bot', 'Welcome to Browfairy! I can assist you with FAQs and service-related questions.');
@@ -577,11 +722,28 @@
         }
 
         function closeChat() {
-            document.getElementById('chatbot-popup').classList.remove('active');
+            const chatPopup = document.getElementById('chatbot-popup');
+            const chatButton = document.querySelector('.chat-icon-button');
+            
+            chatPopup.classList.remove('active');
+            chatButton.classList.remove('open');
+            chatState.isOpen = false;
+            
+            // Show notification badge if there are new messages
+            if (chatState.hasNewMessage) {
+                chatButton.classList.add('new-message');
+                // Update the badge count
+                document.querySelector('.notification-badge').textContent = chatState.unreadCount;
+            }
         }
 
         function clearChat() {
             document.getElementById('chat-content').innerHTML = '';
+            chatState.hasNewMessage = false;
+            chatState.unreadCount = 0;
+            
+            // Remove notification badge
+            document.querySelector('.chat-icon-button').classList.remove('new-message');
         }
 
         document.getElementById('chat-input').addEventListener('keypress', function(event) {
@@ -596,13 +758,22 @@
                 let botReplyContent = responses[userInput] || responses["default"];
                 
                 // Add contact links with underlines
-                let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
+                let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJkem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
                 
                 let botReply = botReplyContent + contactLinks;
 
                 setTimeout(() => {
                     removeTyping();
                     appendMessage('Fairy', botReply);
+                    
+                    // Set new message flag if chat is closed
+                    if (!chatState.isOpen) {
+                        chatState.hasNewMessage = true;
+                        chatState.unreadCount++;
+                        const chatButton = document.querySelector('.chat-icon-button');
+                        chatButton.classList.add('new-message');
+                        document.querySelector('.notification-badge').textContent = chatState.unreadCount;
+                    }
                 }, 1000);
             }
         });
@@ -672,8 +843,6 @@
             }
         });
     </script>
-</body>
-
 
   </style>
   <style>.video-desktop, .video-mobile {
@@ -702,12 +871,12 @@
 
 <!-- Desktop Video -->
 <video id="bg-video-desktop" class="video-desktop" autoplay muted loop playsinline>
-  <source src="videos/nano combination brows.mp4" type="video/mp4" />
+  <source src="nano combination brows.mp4" type="video/mp4" />
 </video>
 
 <!-- Mobile Video -->
 <video id="bg-video-mobile" class="video-mobile" autoplay muted loop playsinline>
-  <source src="videos2/VID_20250721010255.mp4" type="video/mp4" />
+  <source src="jakeer.mp4" type="video/mp4" />
 </video>
 <div class="overlay"></div>
 <header>
@@ -1105,3 +1274,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+
