@@ -581,7 +581,16 @@
 <!-- ===== HERO SECTION ===== -->
 <main class="main-content">
   <section class="hero">
-    <!-- Button container positioned at the top for mobile -->
+    <!-- Text content -->
+    <div class="container text-center">
+      <div class="hero-text-wrapper">
+        <h1 class="wc-word">Ridhima's</h1>
+        <h2 class="animate-up">Browfairy Permanent Makeup</h2>
+        <p class="animate-up">Studio &amp; Training Academy</p>
+      </div>
+    </div>
+    
+    <!-- Buttons positioned at bottom on mobile -->
     <div class="container text-center mobile-buttons-top">
       <div class="d-flex justify-content-center flex-wrap">
         <!-- Instagram Button -->
@@ -600,16 +609,7 @@
       </div>
     </div>
     
-    <div class="container text-center">
-      <!-- Text wrapper for positioning -->
-      <div class="hero-text-wrapper">
-        <h1 class="wc-word">Ridhima's</h1>
-        <h2 class="animate-up">Browfairy Permanent Makeup</h2>
-        <p class="animate-up">Studio &amp; Training Academy</p>
-      </div>
-    </div>
-
-    <!-- Button container positioned at the bottom for desktop -->
+    <!-- Buttons positioned at bottom on desktop -->
     <div class="container text-center desktop-buttons-bottom">
       <div class="d-flex justify-content-center flex-wrap">
         <!-- Instagram Button -->
@@ -758,14 +758,14 @@
       margin-top: -70px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       margin-bottom: 0;
-      padding-bottom: 0;
+      padding-bottom: 20px;
     }
     
     .hero-text-wrapper {
-      margin-top: 0;
-      margin-bottom: 12px; /* Slightly reduced from 15px to 12px */
+      margin-top: 20px;
+      margin-bottom: auto;
       padding-top: 5px;
     }
     
@@ -800,13 +800,18 @@
       border: 2px solid rgba(255, 215, 0, 0.5);
     }
     
-    /* Position buttons at top of hero section on mobile */
+    /* Position buttons at bottom of hero section on mobile */
     .mobile-buttons-top {
-      position: absolute;
-      top: 470px; /* Adjust this value as needed */
+      position: relative;
+      bottom: 0;
       left: 0;
       right: 0;
       z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: auto;
+      padding: 20px 0;
     }
     
     /* Hide desktop buttons on mobile */
@@ -820,6 +825,27 @@
     /* Hide mobile buttons on desktop */
     .mobile-buttons-top {
       display: none;
+    }
+    
+    /* Show desktop buttons at bottom */
+    .desktop-buttons-bottom {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: auto;
+      padding: 20px 0;
+    }
+    
+    /* Adjust button size for desktop */
+    .social-btn {
+      width: 280px;
+      padding: 18px 20px;
+      font-size: 18px;
     }
   }
 </style>
@@ -2497,24 +2523,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
