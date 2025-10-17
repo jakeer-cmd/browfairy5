@@ -232,105 +232,6 @@
 
     /* Desktop / Laptop styles only */
     @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 60px;
-        margin-bottom: 10px;
-        margin-top: 100px;
-      }
-
-      .hero h2 {
-        margin-bottom: 10px;
-      }
-
-      .hero p {
-        margin-bottom: 15px;
-      }
-
-      .hero-buttons {
-        margin-top: 20px;
-        gap: 40px;
-      }
-    }
-
-    /* Mobile styles only */
-    @media (max-width: 767.98px) {
-      .hero h1 {
-        font-size: 25px;
-        text-align: center;
-      }
-
-      .hero-buttons {
-        margin-top: 200px;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .hero a {
-        font-size: 26px;
-        padding: 20px 30px;
-        width: 900%;
-        justify-content: center;
-      }
-
-      .gallery-contact-section {
-        padding: 60px 10px;
-        text-align: center;
-      }
-
-      .gallery-contact-section img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 15px;
-      }
-
-      .gallery-contact-section div {
-        font-size: 18px;
-      }
-    }
-    
-    /* Default: laptop & desktop (side-by-side) */
-    .hero-subheading {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      font-size: 42px;
-      color: #ffffff;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    /* Mobile view (stack vertically) */
-    @media (max-width: 768px) {
-      .hero-subheading {
-        flex-direction: column;
-        font-size: 28px;
-        gap: 4px;
-      }
-    }
-
-    .contact-buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: black;
-      padding: 80px 20px;
-      border-radius: 20px;
-      gap: 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .contact-buttons a {
-      display: flex;
-      align-items: center;
-      color: #FFD700;
-      font-weight: bold;
-      text-decoration: none;
-      gap: 8px;
-    }
-
-    /* Buttons */
-    @media (min-width: 992px) {
       .hero {
         position: relative;
         min-height: 80vh;
@@ -787,31 +688,45 @@
     }
     
     .social-btn {
-      width: 200px;
-      height: 50px;
-      padding: 0 15px;
-      font-size: 16px;
+      width: 150px;
+      height: 45px;
+      padding: 0 10px;
+      font-size: 14px;
       border-radius: 25px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      line-height: 50px;
+      line-height: 45px;
       background-color: rgba(0, 0, 0, 0.8);
       border: 2px solid rgba(255, 215, 0, 0.5);
     }
     
-    /* Position buttons at top of hero section on mobile */
+    /* Position buttons at bottom of screen on mobile */
     .mobile-buttons-top {
-      position: absolute;
-      top: 470px; /* Adjust this value as needed */
+      position: fixed;
+      bottom: 20px;
       left: 0;
       right: 0;
-      z-index: 10;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 0;
+      padding: 0 15px;
+      box-sizing: border-box;
     }
     
     /* Hide desktop buttons on mobile */
     .desktop-buttons-bottom {
       display: none;
+    }
+    
+    /* Adjust for very small screens */
+    @media (max-width: 380px) {
+      .social-btn {
+        width: 130px;
+        font-size: 12px;
+      }
     }
   }
   
@@ -2495,25 +2410,79 @@
             }
         });
     </script>
+
+  <!-- Mobile Social Media Buttons - Fixed at Bottom -->
+  <div class="mobile-social-buttons">
+    <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" target="_blank" class="mobile-social-btn">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/919908063645" target="_blank" class="mobile-social-btn">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <style>
+    /* Mobile Social Media Buttons */
+    .mobile-social-buttons {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 30px;
+      padding: 10px 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .mobile-social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 0 8px;
+      background-color: rgba(255, 215, 0, 0.2);
+      color: #FFD700;
+      font-size: 24px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+    }
+
+    .mobile-social-btn:hover {
+      background-color: rgba(255, 215, 0, 0.4);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+
+    /* Show mobile buttons only on mobile devices */
+    @media (max-width: 768px) {
+      .mobile-social-buttons {
+        display: flex;
+      }
+    }
+
+    /* Hide mobile buttons on desktop */
+    @media (min-width: 769px) {
+      .mobile-social-buttons {
+        display: none;
+      }
+    }
+
+    /* Adjust for very small screens */
+    @media (max-width: 380px) {
+      .mobile-social-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 0 5px;
+      }
+    }
+  </style>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
