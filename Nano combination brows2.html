@@ -14,98 +14,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* Base mobile-first styles */
-    * {
-      box-sizing: border-box;
-    }
-    
-    body, html {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      width: 100%;
-    }
-    
     .About-title { font-family: 'Lobster Two', cursive; }
-    
-    /* Video background adjustments */
-    .video-desktop, .video-mobile {
-      position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-    }
-    
-    @media (min-width: 1025px) {
-      .video-desktop { display: block; }
-      .video-mobile { display: none; }
-    }
-    
-    @media (max-width: 1024px) {
-      .video-desktop { display: none; }
-      .video-mobile { display: block; }
-    }
-    
-    .overlay { 
-      position: fixed; 
-      inset: 0; 
-      background: rgba(0,0,0,.55); 
-      z-index: -1; 
-    }
-    
-    /* Hero section adjustments */
-    .hero { 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: left; 
-      align-items: left; 
-      text-align: left; 
-      min-height: 80vh; 
-      padding-top: 120px; 
-      width: 100%;
-    }
-    
-    .hero h1 { 
-      font-family: 'Dancing Script', cursive; 
-      font-size: 84px; 
-      color: #DAA520; 
-      margin-bottom: 12px; 
-    }
-    
-    .hero .tagline { 
-      font-size: 22px; 
-      font-weight: 500; 
-      color: #fff; 
-      letter-spacing: 1px; 
-      max-width: 850px; 
-      margin: 0 auto; 
-    }
-    
-    /* Navbar adjustments */
-    .navbar { 
-      background-color: transparent; 
-      position: relative; 
-      z-index: 1000; 
-      width: 100%;
-    }
-    
-    .navbar .nav-link { 
-      color: white; 
-      font-weight: 500; 
-    }
-    
-    .navbar .nav-link:hover, 
-    .navbar .nav-link:focus { 
-      color: #FFD700; 
-    }
-    
-    .navbar-toggler { 
-      border-color: rgba(255,255,255,0.2); 
-    }
-    
+    #bg-video { position: fixed; inset: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: -1; }
+    .hero { display: flex; flex-direction: column; justify-content: left; align-items: left; text-align: left; min-height: 80vh; padding-top: 120px; }
+    .hero h1 { font-family: 'Dancing Script', cursive; font-size: 84px; color: #DAA520; margin-bottom: 12px; }
+    .hero .tagline { font-size: 22px; font-weight: 500; color: #fff; letter-spacing: 1px; max-width: 850px; margin: 0 auto; }
+    .navbar { background-color: transparent; position: relative; z-index: 1000; }
+    .navbar .nav-link { color: white; font-weight: 500; }
+    .navbar .nav-link:hover, .navbar .nav-link:focus { color: #FFD700; }
+    .navbar-toggler { border-color: rgba(255,255,255,0.2); }
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 215, 0, 0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
@@ -126,6 +44,8 @@
       z-index: 999;
     }
 
+    
+
     .dropdown li a {
       color: black;
       padding: 10px 20px;
@@ -143,477 +63,205 @@
       height: 100%;
     }
 
-    /* Mobile navbar adjustments */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        background-color: black;
-        padding: 1rem;
-        margin-top: 20px;
-        z-index: 9999;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        max-width: 400px;
-        border-radius: 0;
-      }
 
-      .navbar-nav .nav-link {
-        color: white !important;
-        background-color: black;
-        padding: 10px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-      }
+                           /* Nav Buttons */
 
-      .navbar-nav .nav-link:hover {
-        background-color: #222;
-        color: #FFD700 !important;
-      }
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: black;
+    padding: 1rem;
+    margin-top: 20px;
+    z-index: 9999;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 70vw; /* 🔧 Increase this for wider menu */
+    max-width: 400px; /* Optional max-width */
+    border-radius: 0;
+  }
 
-      .dropdown,
-      .dropdown-menu {
-        background-color: black;
-      }
+  .navbar-nav .nav-link {
+    color: white !important;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
 
-      .dropdown-item {
-        color: black !important;
-        background-color: black;
-      }
+  .navbar-nav .nav-link:hover {
+    background-color: #222;
+    color: #FFD700 !important;
+  }
 
-      .dropdown-item:hover {
-        background-color: #222;
-        color: #FFD700 !important;
-      }
-    }
-    
-    .dropdown {
-      display: none;
-      position: absolute;
-      background-color: white;
-      z-index: 1000;
-      width: 100%;
-    }
+  .dropdown,
+  .dropdown-menu {
+    background-color: black;
+  }
 
-    .dropdown.show {
-      display: block;
-    }
-    
-    /* Logo adjustments */
-    .studio-logo {
-      filter: brightness(1.8);
-    }
-    
-    .logo-container {
-      position: absolute;
-      top: 3px;
-      left: 20px;
-      z-index: 1001;
-    }
+  .dropdown-item {
+    color: black !important;
+    background-color: black;
+  }
 
-    .studio-logo {
-      max-height: 90px;
-      filter: brightness(1.8);
-      width: auto;
-    }
+  .dropdown-item:hover {
+    background-color: #222;
+    color: #FFD700 !important;
+  }
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+  width: 100%;
+}
 
-    /* Mobile logo adjustments */
-    @media (max-width: 768px) {
-      .studio-logo {
-        max-height: 70px;
-      }
+.dropdown.show {
+  display: block;
+}
+                            /* Logo */
+.studio-logo {
+ 
+  filter: brightness(1.8); /* increase brightness */
+}
+.logo-container {
+  position: absolute;
+  top: 3px;
+  left: 20px;
+  z-index: 1001;
+}
 
-      .logo-container {
-        top: 5px;
-        left: 15px;
-      }
-    }
-    
-    /* Burger Toggle Box */
-    .navbar-toggler {
-      position: absolute !important;
-      bottom: 5px;
-      right: -8px;
-      z-index: 1002;
-      background-color: white;
-      border: none;
-      width: 45px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      padding: 0;
-    }
+.studio-logo {
+  max-height: 90px; /* Increased height */
+  filter: brightness(1.8); /* Brightness boost */
+  width: auto;
+}
 
-    /* Center Hamburger Lines */
-    .navbar-toggler-icon {
-      background-image: none;
-      width: 25px;
-      height: 3px;
-      background-color: gold;
-      position: relative;
-      display: inline-block;
-      border-radius: 2px;
-    }
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .studio-logo {
+    max-height: 70px; /* smaller on mobile */
+  }
 
-    /* Top and Bottom Lines */
-    .navbar-toggler-icon::before,
-    .navbar-toggler-icon::after {
-      content: "";
-      position: absolute;
-      width: 25px;
-      height: 3px;
-      background-color: gold;
-      left: 0;
-      border-radius: 2px;
-    }
+  .logo-container {
+    top: 5px;
+    left: 15px;
+  }
+}
 
-    .navbar-toggler-icon::before {
-      top: -8px;
-    }
+                              
+                              /* Burger Toggle Box */
 
-    .navbar-toggler-icon::after {
-      top: 8px;
-    }
-    
-    /* Mobile View adjustments */
-    @media (max-width: 767.98px) {
-      .mobile-center-text {
-        align-items: center !important;
-        text-align: center !important;
-      }
 
-      .heading-text {
-        font-size: 2.9rem !important;
-        margin-left: 0 !important;
-        margin-top: 40px !important;
-        padding: 0 15px !important;
-        width: 100%;
-      }
+.navbar-toggler {
+  position: absolute !important;
+  bottom: 5px;          /* 👈 Distance from the bottom */
+  right: -8px;           /* 👈 Distance from the right */
+  z-index: 1002;
+  background-color: white;
+  border: none;
+  width: 45px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0;
+}
 
-      .tagline-text {
-        font-size: 1.1rem !important;
-        margin-left: 0 !important;
-        margin-top: 10px !important;
-        padding: 0 15px !important;
-        width: 100%;
-      }
-      
-      /* Remove horizontal gaps in content */
-      .container-fluid {
-        padding-left: 0;
-        padding-right: 0;
-      }
-      
-      .info-card {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        border-radius: 0 !important;
-        width: 100%;
-      }
-      
-      .gallery-contact-section .container {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      
-      .gallery-contact-section .col-md-6 {
-        padding-left: 0;
-        padding-right: 0;
-        margin-bottom: 20px;
-      }
-    }
 
-    .slide-up {
-      transform: translateY(50px);
-      opacity: 0;
-      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-    }
+/* Center Hamburger Lines */
+.navbar-toggler-icon {
+  background-image: none;
+  width: 25px;             /* Line width */
+  height: 3px;             /* Line thickness */
+  background-color: gold;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
 
-    .slide-up.is-visible {
-      transform: translateY(0);
-      opacity: 1;
-    }
+/* Top and Bottom Lines */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 25px;             /* Match center line */
+  height: 3px;
+  background-color: gold;
+  left: 0;
+  border-radius: 2px;
+}
 
-    .info-card {
-      border-radius: 1px !important;
-    }
-    
-    /* Follow Us Section adjustments */
-    .gallery-contact-section {
-      background-color: grey;
-      color: white;
-      padding: 60px 0;
-      position: relative;
-      top: -1px;
-    }
-    
-    .follow-text {
-      font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      color: #FFD200;
-    }
+.navbar-toggler-icon::before {
+  top: -8px;               /* Space above center line */
+}
 
-    .slide-on-scroll {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-out;
-    }
+.navbar-toggler-icon::after {
+  top: 8px;                /* Space below center line */
+}
 
-    .slide-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .glow-text-button {
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      position: relative;
-      font-size: inherit;
-      font-weight: inherit;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      animation: text-glow 2s ease-in-out infinite;
-    }
-    
-    @keyframes text-glow {
-      0% {
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
-                     0 0 10px rgba(255, 215, 0, 0.5),
-                     0 0 15px rgba(255, 215, 0, 0.3);
-      }
-      50% {
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.9),
-                     0 0 15px rgba(255, 215, 0, 0.7),
-                     0 0 20px rgba(255, 215, 0, 0.5),
-                     0 0 25px rgba(255, 215, 0, 0.3);
-      }
-      100% {
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
-                     0 0 10px rgba(255, 215, 0, 0.5),
-                     0 0 15px rgba(255, 215, 0, 0.3);
-      }
-    }
-    
-    .glow-text-button:hover {
-      color: #FFD700;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 1),
-                   0 0 20px rgba(255, 215, 0, 0.8),
-                   0 0 30px rgba(255, 215, 0, 0.6),
-                   0 0 40px rgba(255, 215, 0, 0.4);
-      transform: translateY(-5px);
-    }
-    
-    .glow-text-button::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #FFD700;
-      box-shadow: 0 0 5px #FFD700;
-      transition: width 0.3s ease;
-    }
-    
-    .glow-text-button:hover::after {
-      width: 100%;
-    }
-    
-    /* Mobile adjustments for Follow Us Section */
-    @media (max-width: 768px) {
-      .gallery-contact-section {
-        margin-top: 1px;
-      }
-      
-      .glow-text-button {
-        animation: text-glow 2s ease-in-out infinite;
-      }
-      
-      .glow-text-button:hover {
-        transform: translateY(-3px);
-      }
-      
-      .follow-text {
-        font-size: 45px;
-      }
-    }
-    
-    /* Hover effect for images */
-    .hover-effect {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .hover-effect:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    }
-    
-    /* Logo link adjustments */
-    .logo-container a {
-      display: inline-block;
-      position: relative;
-    }
-    
-    .logo-container a::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      bottom: -10px;
-      left: -10px;
-      right: -10px;
-    }
+
+
+
+ 
+
+                       /* Mobile View */
+
+
+@media (max-width: 767.98px) {
+  .mobile-center-text {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .heading-text {
+    font-size: 2.9rem !important;  /* Smaller font for mobile */
+    margin-left: 0 !important;
+    margin-top: 40px !important;
+    padding: 10 15px;
+  }
+
+  .tagline-text {
+    font-size: 1.1rem !important;  /* Smaller font for mobile */
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+    padding: 0 20px;
+  }
+}
+
+.slide-up {
+  /* Initial state: pushed down and hidden */
+  transform: translateY(50px);
+  opacity: 0;
+  
+  /* Transition for a smooth animation */
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.slide-up.is-visible {
+  /* Final state: in original position and visible */
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.info-card {
+  border-radius: 1px !important;
+}
+
   </style>
 </head>
 <body>
-  <!-- Desktop Video -->
-  <video id="bg-video-desktop" class="video-desktop" autoplay muted loop playsinline>
-    <source src="nano combination brows.mp4" type="video/mp4" />
-  </video>
 
-  <!-- Mobile Video -->
-  <video id="bg-video-mobile" class="video-mobile" autoplay muted loop playsinline>
-    <source src="VID-20250710-WA0004.mp4" type="video/mp4" />
-  </video>
+
+
+
+
+ 
   
-  <div class="overlay"></div>
+                                  
   
-  <header>
-    <div class="logo-container">
-      <a href="index.html">
-        <img src="logo.png" alt="Logo" class="studio-logo img-fluid">
-      </a>
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index2.html"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="index2.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about2.html">About</a></li>
-            <li class="has-dropdown nav-item">
-              <a class="nav-link" href="#">Services <i class="fa-solid fa-chevron-down chev"></i></a>
-              <ul class="dropdown">
-                <li><a class="dropdown-item" href="Microblading2.html">Microblading</a></li>
-                <li><a class="dropdown-item" href="Combination brows2.html">Combination Brows</a></li>
-                <li><a class="dropdown-item" href="ombre-brows2.html">Ombré Powder Brows</a></li>
-                <li><a class="dropdown-item" href="Lip neutralization2.html">Lip Neutralization</a></li>
-                <li><a class="dropdown-item" href="Lip Blush2.html">Lip Blush</a></li>
-                <li><a class="dropdown-item" href="Lash liner2.html">Lash Liner</a></li>
-                <li><a class="dropdown-item" href="nano-hairstrokes2.html">Nano Hairstrokes Brows</a></li>
-                <li><a class="dropdown-item" href="Nano combination brows2.html">Nano Combination Brows</a></li>
-                <li><a class="dropdown-item" href="Lash lift and tint2.html">Lash Lift and Tint</a></li>
-                <li><a class="dropdown-item" href="Brow lamination and tint2.html">Brow Lamination and Tint</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="Online Training Courses2.html">Training</a></li>
-            <li class="nav-item"><a class="nav-link" href="blogs2.html">Blogs</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact2.html">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="Faqs2.html">FAQS</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <div class="col-12 col-md-12 d-flex flex-column align-items-right text-right mb-6 mobile-center-text">
-    <h1 class="fw-bold heading-text slide-up" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #DAA520; margin-top: 80px; margin-left: 35px; padding: 15 200;">
-      Nano Combination Brows
-    </h1>
-     
-    <p class="text-white tagline-text slide-up" style="margin-top: -1px; margin-left: 40px; font-size: 18px;">
-      FLAWLESS, HAIR‑LIKE STROKES FOR BEAUTIFULLY DEFINED BROWS.
-    </p>
-  </div>
-
-  <!-- INFO CARD SECTION -->
-  <div class="col-12 col-md-12 d-flex justify-content-center">
-    <div class="info-card" style="font-family: 'Poppins', sans-serif; font-size: 16px; max-width: 1400px; margin-top: 30px; background: rgba(255, 255, 255, 0.7)">
-      <h2 style="color:#DAA520; margin-left:38px;">Nano Combination Brows</h2>
-      <div style="margin-left: 42px;">
-        <p>Microblading: Also known as eyebrow embroidery, micro-stroking, or 3D brows, this manual method enhances or completely reshapes your eyebrows with delicate, hair-like strokes.</p>
-  
-        <p>Using precision tools and high-quality pigments, we implant pigment into the upper dermal layer of the skin, mimicking real eyebrow hairs. The result? Brows that look effortlessly natural and beautifully defined—perfect for those with sparse brows, uneven arches, or anyone looking to save time on daily makeup.</p>
-
-        <p><strong>Why Choose Browfairy PMU for Microshading?</strong></p>
-  
-        <ul style="padding-left: 20px;">
-          <li>Expert artistry by Ridhima – a certified permanent makeup specialist known for precision and aesthetic symmetry.</li>
-          <li>We tailor each brow shape to match your facial structure, skin tone, and personal style.</li>
-          <li>We use only top-tier, skin-safe pigments and sterilized tools for safety and long-lasting results.</li>
-          <li>Stay on trend with the latest microblading styles, including fluffy brows, soft shading, and hybrid looks that blend microblading with ombré effects.</li>
-        </ul>
-
-        <p>Whether you're looking to subtly enhance your natural brows or want a dramatic transformation, microshading at Browfairy PMU ensures you wake up with perfect brows—every day.</p>
-
-        <p>📍Located in the heart of Hyderabad, book your consultation today to begin your brow journey with the city's most trusted PMU studio.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Follow Us Section -->
-  <section class="gallery-contact-section">
-    <div class="container">
-      <div class="row align-items-start g-5">
-        <!-- Left Column: Images -->
-        <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
-          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-            <img src="service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
-          </div>
-          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-            <img src="service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
-          </div>
-        </div>
-
-        <!-- Right Column: Follow Us Info -->
-        <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
-          <div class="follow-text">Follow Us</div>
-
-          <!-- Phone -->
-          <div class="text-center">
-            <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
-            <strong style="font-size: 25px;">PHONE</strong><br>
-            <a href="tel:+919908063645" class="glow-text-button">+91 9908063645</a>
-            <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
-          </div>
-          
-          <!-- Instagram -->
-          <div class="text-center">
-            <div style="font-size: 25px; color: white;">
-              <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
-            </div>
-
-            <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
-              <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
-                 target="_blank" 
-                 class="glow-text-button">
-                @browfairy_pmustudio
-              </a>
-            </div>
-
-            <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
-          </div>
-
-          <!-- Email -->
-          <div class="text-center">
-            <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
-            <strong style="font-size: 22px;">Email</strong><br>
-            <a href="mailto:ridhimas.browfairy@gmail.com" class="glow-text-button">ridhimas.browfairy@gmail.com</a>
-            <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- CHAT BOT CODE -->
+                                    <!-- CHAT BOT CODE -->
 <button class="chat-icon-button" onclick="toggleChat()">
     <div class="icon-container">
         <!-- Using the local image file -->
@@ -1259,7 +907,438 @@
         }
     });
 </script>
-</body>
-</html>
+  </style>
+  <style>.video-desktop, .video-mobile {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
 
+/* Show desktop video only on big screens */
+@media (min-width: 1025px) {
+  .video-desktop { display: block; }
+  .video-mobile { display: none; }
+}
+
+/* Show mobile video only on small screens */
+@media (max-width: 1024px) {
+  .video-desktop { display: none; }
+  .video-mobile { display: block; }
+}
+</style>
+
+
+  
+
+<!-- Desktop Video -->
+<video id="bg-video-desktop" class="video-desktop" autoplay muted loop playsinline>
+  <source src="nano combination brows.mp4" type="video/mp4" />
+</video>
+
+<!-- Mobile Video -->
+<video id="bg-video-mobile" class="video-mobile" autoplay muted loop playsinline>
+  <source src="jakeer.mp4" type="video/mp4" />
+</video>
+<div class="overlay"></div>
+<header>
+  <div class="logo-container">
+  <img src="logo.png" alt="Logo" class="studio-logo img-fluid">
+</div>
+
+
+</div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index2.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about2.html">About</a></li>
+          <li class="has-dropdown nav-item">
+            <a class="nav-link" href="#">Services <i class="fa-solid fa-chevron-down chev"></i></a>
+            <ul class="dropdown">
+              <li><a class="dropdown-item" href="microblading2.html">Microblading</a></li>
+              <li><a class="dropdown-item" href="Combination brows2.html">Combination Brows</a></li>
+              <li><a class="dropdown-item" href="ombre-brows2.html">Ombré Powder Brows</a></li>
+              <li><a class="dropdown-item" href="Lip neutralization2.html">Lip Neutralization</a></li>
+              <li><a class="dropdown-item" href="Lip blush2.html">Lip Blush</a></li>
+              <li><a class="dropdown-item" href="Lash liner2.html">Lash Liner</a></li>
+              <li><a class="dropdown-item" href="nano-hairstrokes2.html">Nano Hairstrokes Brows</a></li>
+              <li><a class="dropdown-item" href="Nano combination brows2.html">Nano Combination Brows</a></li>
+              <li><a class="dropdown-item" href="Lash lift and tint2.html">Lash Lift and Tint</a></li>
+              <li><a class="dropdown-item" href="Brow lamination and tint2.html">Brow Lamination and Tint</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="Online Training Courses2.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="Blogs2.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact2.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="Faqs2.html">FAQS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="col-12 col-md-12 d-flex flex-column align-items-right text-right mb-6 mobile-center-text">
+  <h1 class="fw-bold heading-text slide-up" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #DAA520; margin-top: 80px; margin-left: 35px; padding: 15 200;">
+  Nano Combination Brows
+  </h1>
+   
+  <p class="text-white tagline-text slide-up" style="margin-top: -1px; margin-left: 40px; font-size: 18px;">
+    FLAWLESS, HAIR‑LIKE STROKES FOR BEAUTIFULLY DEFINED BROWS.
+  </p>
+</div>
+
+
+
+
+    <!-- INFO CARD SECTION -->
+    <div class="col-12 col-md-12 d-flex justify-content-center">
+     <div class=" info-card" style="font-family: 'Poppins', sans-serif; font-size: 16px; max-width: 1400px; margin-top: 30px;background: rgba(255, 255, 255, 0.7)">
+
+         <h2 style="color:#DAA520; margin-left:38px;">Nano Combination Brows</h2>
+         <div style="margin-left: 42px;">
+         <p>Microblading: Also known as eyebrow embroidery, micro-stroking, or 3D brows, this manual method enhances or completely reshapes your eyebrows with delicate, hair-like strokes.</p>
+  
+  <p>Using precision tools and high-quality pigments, we implant pigment into the upper dermal layer of the skin, mimicking real eyebrow hairs. The result? Brows that look effortlessly natural and beautifully defined—perfect for those with sparse brows, uneven arches, or anyone looking to save time on daily makeup.</p>
+
+  <p><strong>Why Choose Browfairy PMU for Microshading?</strong></p>
+  
+  <ul style="padding-left: 20px;">
+    <li>Expert artistry by Ridhima – a certified permanent makeup specialist known for precision and aesthetic symmetry.</li>
+    <li>We tailor each brow shape to match your facial structure, skin tone, and personal style.</li>
+    <li>We use only top-tier, skin-safe pigments and sterilized tools for safety and long-lasting results.</li>
+    <li>Stay on trend with the latest microblading styles, including fluffy brows, soft shading, and hybrid looks that blend microblading with ombré effects.</li>
+  </ul>
+
+  <p>Whether you're looking to subtly enhance your natural brows or want a dramatic transformation, microshading at Browfairy PMU ensures you wake up with perfect brows—every day.</p>
+
+  <p>📍Located in the heart of Hyderabad, book your consultation today to begin your brow journey with the city’s most trusted PMU studio.</p>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+  <!-- Follow Us Section -->
+
+<section class="gallery-contact-section" style="background-color: grey; color: white; padding: 60px 0; position: relative; top: -1px;">
+  <div class="container">
+      <div class="row align-items-start g-5">
+        <!-- Left Column: Images -->
+        <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
+          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
+            <img src="service1.jpg" alt="Image 1" class="img-fluid" style="object-fit: cover; height: 100%;">
+          </div>
+          <div style="width: 48%; overflow: hidden; border-radius: 20px;">
+            <img src="service5.jpg" alt="Image 2" class="img-fluid" style="object-fit: cover; height: 100%;">
+          </div>
+        </div>
+
+        <!-- Right Column: Follow Us Info -->
+        <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
+          <div class="follow-text" style="font-size: 45px;">Follow Us</div>
+
+          <!-- Phone -->
+          <div class="text-center">
+            <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
+            <strong style="font-size: 25px;">PHONE</strong><br>
+            <a href="tel:+919908063645" class="glow-text-button">+91 9908063645</a>
+            <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
+          
+          <!-- Instagram -->
+          <div class="text-center">
+            <div style="font-size: 25px; color: white;">
+              <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
+            </div>
+
+            <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
+              <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
+                 target="_blank" 
+                 class="glow-text-button">
+                @browfairy_pmustudio
+              </a>
+            </div>
+
+            <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
+
+          <!-- Email -->
+          <div class="text-center">
+            <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
+            <strong style="font-size: 22px;">Email</strong><br>
+            <a href="mailto:ridhimas.browfairy@gmail.com" class="glow-text-button">ridhimas.browfairy@gmail.com</a>
+            <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      .glow-text-button {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        font-size: inherit;
+        font-weight: inherit;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: text-glow 2s ease-in-out infinite;
+      }
+      
+      /* Text glow animation */
+      @keyframes text-glow {
+        0% {
+          text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
+                       0 0 10px rgba(255, 215, 0, 0.5),
+                       0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        50% {
+          text-shadow: 0 0 8px rgba(255, 215, 0, 0.9),
+                       0 0 15px rgba(255, 215, 0, 0.7),
+                       0 0 20px rgba(255, 215, 0, 0.5),
+                       0 0 25px rgba(255, 215, 0, 0.3);
+        }
+        100% {
+          text-shadow: 0 0 5px rgba(255, 215, 0, 0.7),
+                       0 0 10px rgba(255, 215, 0, 0.5),
+                       0 0 15px rgba(255, 215, 0, 0.3);
+        }
+      }
+      
+      /* Hover effect */
+      .glow-text-button:hover {
+        color: #FFD700;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 1),
+                     0 0 20px rgba(255, 215, 0, 0.8),
+                     0 0 30px rgba(255, 215, 0, 0.6),
+                     0 0 40px rgba(255, 215, 0, 0.4);
+        transform: translateY(-5px);
+      }
+      
+      /* Add a subtle underline that appears on hover */
+      .glow-text-button::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #FFD700;
+        box-shadow: 0 0 5px #FFD700;
+        transition: width 0.3s ease;
+      }
+      
+      .glow-text-button:hover::after {
+        width: 100%;
+      }
+      
+      /* Mobile adjustment - move section slightly to bottom */
+      @media (max-width: 768px) {
+        .gallery-contact-section {
+          margin-top: 50px;
+        }
+        
+        /* Reduce animation intensity on mobile */
+        .glow-text-button {
+          animation: text-glow 2s ease-in-out infinite;
+        }
+        
+        .glow-text-button:hover {
+          transform: translateY(-3px);
+        }
+      }
+    </style>
+  </section>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Auto-Close Mobile Menu Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownTrigger = document.querySelector('.has-dropdown > a');
+    const dropdownMenu = dropdownTrigger.nextElementSibling;
+
+    // Toggle dropdown on Services click
+    dropdownTrigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // Prevents event from reaching document listener
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Also stop propagation on menu click so it doesn't close when clicking inside
+    dropdownMenu.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+
+    // Close dropdown when clicking anywhere else
+    document.addEventListener('click', function () {
+      dropdownMenu.classList.remove('show');
+    });
+  });
+</script>
+
+<script>
+function animateOnLoad() {
+    const animatedElements = document.querySelectorAll('.slide-up');
+    let delay = 0;
+
+    // Reset the elements by removing the 'is-visible' class
+    animatedElements.forEach(element => {
+        element.classList.remove('is-visible');
+    });
+
+    // Animate the elements with a delay
+    animatedElements.forEach(element => {
+        setTimeout(() => {
+            element.classList.add('is-visible');
+        }, delay);
+        
+        // Stagger the animation for a sequential effect
+        delay += 300; 
+    });
+}
+
+// Run the function when the page loads
+document.addEventListener('DOMContentLoaded', animateOnLoad);
+
+// You can also call this function whenever new content is loaded, for example, on a single-page application transition.
+
+
+
+
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".slide-on-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+  });
+</script>
+ 
+<!-- Scroll Animation CSS -->
+<style>
+  .follow-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    color: #FFD200;
+  }
+
+  .slide-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+  }
+
+  .slide-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<style>
+.hover-effect {
+  /* Set a smooth transition for all transformations */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+  /* Scale the image up by 5% */
+  transform: scale(1.05); 
+  
+  /* Add a shadow to create a sense of depth */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+}</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth <= 768) { // Mobile screen check
+    const logoContainer = document.querySelector('.logo-container');
+    if (logoContainer) {
+      // Wrap logo in a link
+      const link = document.createElement('a');
+      link.href = 'index.html';
+      // Move the existing logo into the link
+      while (logoContainer.firstChild) {
+        link.appendChild(logoContainer.firstChild);
+      }
+      logoContainer.appendChild(link);
+    }
+  }
+});
+</script>
+<style>@media (max-width: 768px) {
+  .logo-container a {
+    display: inline-block;
+    position: relative;
+    
+  }
+  .logo-container a::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const logoContainer = document.querySelector('.logo-container');
+    if (logoContainer) {
+        // Wrap logo in a link
+        const link = document.createElement('a');
+        link.href = 'index.html';
+        // Move the existing logo into the link
+        while (logoContainer.firstChild) {
+            link.appendChild(logoContainer.firstChild);
+        }
+        logoContainer.appendChild(link);
+    }
+});
+</script>
+
+<style>
+.logo-container a {
+    display: inline-block;
+    position: relative;
+}
+
+.logo-container a::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+}
+</style>
+
+</body>
+
+</html>
 
