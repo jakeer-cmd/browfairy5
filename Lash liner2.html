@@ -260,16 +260,7 @@
  
   
                                      
- 
-</body>
-  <style>.video-desktop, .video-mobile {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-}<!-- CHAT BOT CODE -->
+ <!-- CHAT BOT CODE -->
 <button class="chat-icon-button" onclick="toggleChat()">
     <div class="icon-container">
         <!-- Using the local image file -->
@@ -916,6 +907,16 @@
     });
 </script>
 
+</body>
+  <style>.video-desktop, .video-mobile {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
 /* Show desktop video only on big screens */
 @media (min-width: 1025px) {
   .video-desktop { display: block; }
@@ -1332,5 +1333,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
-
