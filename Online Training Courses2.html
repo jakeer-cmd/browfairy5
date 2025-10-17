@@ -10,7 +10,7 @@
 
   <!-- Shared styles & fonts -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lobster+Two&family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -476,6 +476,45 @@
         margin-top: 40px !important; /* Increased gap for desktop */
       }
     }
+    
+    /* Work in Progress Section */
+    .wip-section {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 60px 30px;
+      margin: 40px auto;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    
+    .wip-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #DAA520;
+      margin-bottom: 20px;
+    }
+    
+    .wip-message {
+      font-size: 1.2rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .wip-section {
+        padding: 40px 20px;
+        margin: 20px 15px;
+      }
+      
+      .wip-title {
+        font-size: 2rem;
+      }
+      
+      .wip-message {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -548,104 +587,25 @@
   </h1>
 </div>
 
-<!-- Info Card Section -->
-<section class="info-card container my-5" style="padding: 40px 20px; background: rgba(255, 255, 255, 0.7); max-width: 1500px; margin: auto; box-shadow: 0 0 15px rgba(0,0,0,0.05); margin-top: -60px;">
-  <div class="row justify-content-center g-4">
-
-    <!-- Course 1 -->
-    <div class="col-lg-4 col-md-6 col-12">
-      <a href="course4.html" style="text-decoration: none; color: inherit;">
-        <div style="border: 1px solid #ddd; padding: 15px; text-align: center;">
-          <img src=".jpg" alt="Trial Course" style="width: 100%; height: 400px; object-fit: cover;">
-          <h3 style="margin-top: 10px;">Trial Course</h3>
-          <p>Online Beauty Angels Microblading Trial Course</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Course 2 -->
-    <div class="col-lg-4 col-md-6 col-12">
-      <a href="course5.html" style="text-decoration: none; color: inherit;">
-        <div style="border: 1px solid #ddd; padding: 15px; text-align: center;">
-          <img src="your-image2.jpg" alt="Microblade & Shade Basic" style="width: 100%; height: 400px; object-fit: cover;">
-          <h3 style="margin-top: 10px;">Microblade & Shade Basic</h3>
-          <p>Microblade & Shade Basic Online Course</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Course 3 -->
-    <div class="col-lg-4 col-md-6 col-12">
-      <a href="course6.html" style="text-decoration: none; color: inherit;">
-        <div style="border: 1px solid #ddd; padding: 15px; text-align: center;">
-          <img src="your-image3.jpg" alt="Microblade & Shade Advanced" style="width: 100%; height: 400px; object-fit: cover;">
-          <h3 style="margin-top: 10px;">Microblade & Shade Advanced</h3>
-          <p>Microblade & Shade Advanced Online Course</p>
-        </div>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Follow Us Section -->
-<section class="gallery-contact-section">
-  <div class="container">
-    <div class="row align-items-start g-5">
-      <!-- Left Column: Images -->
-      <div class="col-md-6 col-12 d-flex gap-3 justify-content-center slide-on-scroll">
-        <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-          <img src="service1.jpg" alt="Image 1" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
-        </div>
-        <div style="width: 48%; overflow: hidden; border-radius: 20px;">
-          <img src="service5.jpg" alt="Image 2" class="img-fluid hover-effect" style="object-fit: cover; height: 100%;">
-        </div>
-      </div>
-
-      <!-- Right Column: Follow Us Info -->
-      <div class="col-md-6 col-12 d-flex flex-column align-items-center gap-4 slide-on-scroll">
-        <div class="follow-text">Follow Us</div>
-
-        <!-- Phone -->
-        <div class="text-center">
-          <i class="fa-solid fa-phone" style="color: #FFD700; margin-right: 8px; font-size: 25px;"></i>
-          <strong style="font-size: 25px;">PHONE</strong><br>
-          <a href="tel:+919908063645" class="glow-text-button">+91 9908063645</a>
-          <div style="height: 2px; width: 180px; background-color: white; margin: 20px auto 0;"></div>
-        </div>
-        
-        <!-- Instagram -->
-        <div class="text-center">
-          <div style="font-size: 25px; color: white;">
-            <i class="fa-brands fa-instagram" style="margin-right: 8px;"></i>Instagram
-          </div>
-
-          <div style="font-size: 22px; font-weight: 600; margin-top: 10px;">
-            <a href="https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz" 
-               target="_blank" 
-               class="glow-text-button">
-              @browfairy_pmustudio
-            </a>
-          </div>
-
-          <div style="height: 2px; width: 250px; background-color: white; margin: 20px auto 0;"></div>
-        </div>
-
-        <!-- Email -->
-        <div class="text-center">
-          <i class="fa-solid fa-envelope" style="color: #FFD700; margin-right: 8px; font-size: 22px;"></i>
-          <strong style="font-size: 22px;">Email</strong><br>
-          <a href="mailto:ridhimas.browfairy@gmail.com" class="glow-text-button">ridhimas.browfairy@gmail.com</a>
-          <div style="height: 2px; width: 300px; background-color: white; margin: 20px auto 0;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Work in Progress Section -->
+<section class="wip-section slide-up">
+  <h2 class="wip-title">Work in Progress</h2>
+  <p class="wip-message">
+    We're currently updating our course offerings. Please check back soon for new and exciting training opportunities.
+  </p>
 </section>
 
 <!-- CHAT BOT CODE -->
-<button class="chat-icon-button" onclick="openChat()">
-    <i class="fas fa-comment-dots"></i>
+<button class="chat-icon-button" onclick="toggleChat()">
+    <div class="icon-container">
+        <!-- Using the local image file -->
+        <img id="chat-icon" src="icon.jpg" alt="Chat Icon" class="avatar-icon">
+        
+        <!-- Close icon for when chat is open -->
+        <div class="close-icon">&times;</div>
+    </div>
+    <!-- Notification badge -->
+    <div class="notification-badge">1</div>
 </button>
 
 <div id="chatbot-popup">
@@ -658,10 +618,20 @@
     </header>
     <div id="chat-content"></div>
     <div class="chat-footer">
-        <input type="text" id="chat-input" placeholder="Type your message...">
+        <div class="input-container">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button id="send-btn" onclick="sendMessage()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </button>
+        </div>
         <div class="chat-footer-controls">
             <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
-            <span class="powered-by">Powered by www.HyperionAI Solution.com</span>
+            <a href="https://www.hyperionai.io/" target="_blank" class="powered-by">
+                <span class="powered-by-text">Powered by</span>
+                <span class="powered-by-url">www.hyperionai.io</span>
+            </a>
         </div>
     </div>
 </div>
@@ -674,7 +644,7 @@
     }
 
     .chat-icon-button {
-        background-color: goldenrod;
+        background-color: transparent;
         color: white;
         width: 70px;
         height: 70px;
@@ -690,6 +660,86 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.3s ease;
+        overflow: visible;
+    }
+
+    .chat-icon-button:hover {
+        transform: scale(1.1);
+    }
+
+    .chat-icon-button.new-message {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+    }
+
+    .icon-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .avatar-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        transition: opacity 0.3s ease;
+    }
+
+    .close-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .chat-icon-button.open .avatar-icon {
+        opacity: 0;
+    }
+
+    .chat-icon-button.open .close-icon {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .chat-icon-button.open {
+        background-color: black;
+    }
+
+    .notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .chat-icon-button.new-message .notification-badge {
+        opacity: 1;
     }
 
     #chatbot-popup {
@@ -753,19 +803,53 @@
         padding: 10px;
         overflow-y: auto;
         font-size: 14px;
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        position: relative;
     }
 
     #chat-input {
-        width: 100%;
-        padding: 8px;
+        flex: 1;
+        padding: 8px 40px 8px 10px; /* Add right padding for the arrow */
         border-radius: 8px;
         border: 1px solid #ccc;
-        margin-top: 5px;
         pointer-events: none;
     }
 
     #chatbot-popup.active #chat-input {
         pointer-events: auto;
+    }
+
+    #send-btn {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #555;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #send-btn:hover {
+        color: #000;
+    }
+
+    #send-btn svg {
+        width: 18px;
+        height: 18px;
     }
 
     .chat-footer {
@@ -792,10 +876,29 @@
         font-size: 12px;
     }
 
+    .clear-btn:hover {
+        background-color: #bbb;
+    }
+
     .powered-by {
         font-size: 10px;
-        color: #666;
         font-style: italic;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .powered-by-text {
+        color: black;
+        margin-right: 4px;
+    }
+
+    .powered-by-url {
+        color: blue;
+    }
+
+    .powered-by:hover .powered-by-url {
+        text-decoration: underline;
     }
 
     .chat-message {
@@ -870,9 +973,10 @@
             bottom: 80px;
             right: 10px;
             left: auto;
+            max-height: 70vh; /* Limit height on mobile */
         }
         
-        /* Mobile header styling to match the image */
+        /* Mobile header styling */
         #chatbot-popup header {
             padding: 4px 8px;
             height: 32px;
@@ -916,229 +1020,226 @@
             background-color: rgba(255, 255, 255, 0.3);
         }
         
+        .clear-btn {
+            font-size: 10px;
+            padding: 4px 8px;
+        }
+        
         .powered-by {
             font-size: 8px;
+        }
+        
+        .notification-badge {
+            width: 16px;
+            height: 16px;
+            font-size: 10px;
+        }
+        
+        /* Enhanced mobile scrolling */
+        #chat-content {
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            /* Ensure content area is scrollable */
+            overflow-y: auto !important;
+            /* Prevent scrolling from propagating to parent elements */
+            overscroll-behavior: contain;
+        }
+        
+        /* Make sure the chatbot doesn't exceed viewport height */
+        @media (max-height: 600px) {
+            #chatbot-popup {
+                height: 60vh;
+                bottom: 60px;
+            }
         }
     }
 </style>
 
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Auto-Close Mobile Menu Script -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const dropdownTrigger = document.querySelector('.has-dropdown > a');
-    const dropdownMenu = dropdownTrigger.nextElementSibling;
+    const responses = {
+        "hi": "Hi, I am your Browfairy. ",
+        "hello": "Hello! Feel free to ask me any questions about our services. For accurate info, it's always best to call or WhatsApp us.",
+        "timings": "We are open from 11 AM to 8 PM every day.",
+        "what are your timings": "We are open from 11 AM to 8 PM every day.",
+        "location": "It's located in Kondapur, Hyderabad.",
+        "are weekends open": "Yes, we are open all days. But you need to book a prior appointment.",
+        "how can i book my appointment": "You can call/WhatsApp us on +91 9908063645 for booking the appointment.",
+        "how many sessions for eyebrows": "Two sessions are typically needed for eyebrows. The first session creates the shape and color, while the second perfects the result.",
+        "how many sessions for lips": "2-3 sessions are required for lips procedures depending on the skin type.",
+        "how long does the process take": "A procedure typically takes between 2-3 hours.",
+        "can we have a phone consultation": "Yes, absolutely. Please call/WhatsApp us on +91 9908063645.",
+        "is it permanent": "It's a semi-permanent makeup that lasts for at least 2-3 years. After that, a touch-up session will maintain the results.",
+        "how many sessions for long lasting results": "Two sessions are required for long-lasting results.",
+        "does it hurt": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
+        "is it painful": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
+        "what is pmu": "PMU stands for Permanent Makeup, a cosmetic tattoo technique that enhances features like eyebrows, lips, and eyes using pigments implanted into the skin. It saves time, boosts confidence, and gives a long-lasting polished look.",
+        "what is microblading": "Microblading is a semi-permanent eyebrow technique that uses fine needles to create hair-like strokes, enhancing shape and fullness. Results last 1-2 years with proper care.",
+        "is it safe": "Yes, PMU is safe when performed by a trained professional in a sterile environment. However, it may not be suitable for everyone like pregnant women, breastfeeding mothers, or those on blood thinner medications.",
+        "how long does a lip procedure last": "It typically takes 2-3 hours for the procedure and the results last for at least 2-3 years.",
+        "default": "Please call/WhatsApp us on +91 9908063645 or DM on Instagram to get accurate responses."
+    };
 
-    // Toggle dropdown on Services click
-    dropdownTrigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation(); // Prevents event from reaching document listener
-      dropdownMenu.classList.toggle('show');
-    });
+    // Track chat state
+    let chatState = {
+        isOpen: false,
+        hasNewMessage: false,
+        unreadCount: 0
+    };
 
-    // Also stop propagation on menu click so it doesn't close when clicking inside
-    dropdownMenu.addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
-
-    // Close dropdown when clicking anywhere else
-    document.addEventListener('click', function () {
-      dropdownMenu.classList.remove('show');
-    });
-  });
-</script>
-
-<script>
-  function animateOnLoad() {
-    const animatedElements = document.querySelectorAll('.slide-up');
-    let delay = 0;
-
-    // Reset the elements by removing the 'is-visible' class
-    animatedElements.forEach(element => {
-      element.classList.remove('is-visible');
-    });
-
-    // Animate the elements with a delay
-    animatedElements.forEach(element => {
-      setTimeout(() => {
-        element.classList.add('is-visible');
-      }, delay);
-      
-      // Stagger the animation for a sequential effect
-      delay += 300; 
-    });
-  }
-
-  // Run the function when the page loads
-  document.addEventListener('DOMContentLoaded', animateOnLoad);
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+    function toggleChat() {
+        if (chatState.isOpen) {
+            closeChat();
+        } else {
+            openChat();
         }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll(".slide-on-scroll").forEach((el) => {
-      observer.observe(el);
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const logoContainer = document.querySelector('.logo-container');
-    if (logoContainer && !logoContainer.querySelector('a')) {
-      // Wrap logo in a link only if it's not already wrapped
-      const link = document.createElement('a');
-      link.href = 'index.html';
-      // Move the existing logo into the link
-      while (logoContainer.firstChild) {
-        link.appendChild(logoContainer.firstChild);
-      }
-      logoContainer.appendChild(link);
-    }
-  });
-</script>
-
-<script>
-  const responses = {
-    "hi": "Hi, I am your Browfairy. ",
-    "hello": "Hello! Feel free to ask me any questions about our services. For accurate info, it's always best to call or WhatsApp us.",
-    "timings": "We are open from 11 AM to 8 PM every day.",
-    "what are your timings": "We are open from 11 AM to 8 PM every day.",
-    "location": "It's located in Kondapur, Hyderabad.",
-    "are weekends open": "Yes, we are open all days. But you need to book a prior appointment.",
-    "how can i book my appointment": "You can call/WhatsApp us on +91 9908063645 for booking the appointment.",
-    "how many sessions for eyebrows": "Two sessions are typically needed for eyebrows. The first session creates the shape and color, while the second perfects the result.",
-    "how many sessions for lips": "2-3 sessions are required for lips procedures depending on the skin type.",
-    "how long does the process take": "A procedure typically takes between 2-3 hours.",
-    "can we have a phone consultation": "Yes, absolutely. Please call/WhatsApp us on +91 9908063645.",
-    "is it permanent": "It's a semi-permanent makeup that lasts for at least 2-3 years. After that, a touch-up session will maintain the results.",
-    "how many sessions for long lasting results": "Two sessions are required for long-lasting results.",
-    "does it hurt": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
-    "is it painful": "There will be slight discomfort but it won't be painful. A numbing cream is applied during the process to keep you comfortable.",
-    "what is pmu": "PMU stands for Permanent Makeup, a cosmetic tattoo technique that enhances features like eyebrows, lips, and eyes using pigments implanted into the skin. It saves time, boosts confidence, and gives a long-lasting polished look.",
-    "what is microblading": "Microblading is a semi-permanent eyebrow technique that uses fine needles to create hair-like strokes, enhancing shape and fullness. Results last 1-2 years with proper care.",
-    "is it safe": "Yes, PMU is safe when performed by a trained professional in a sterile environment. However, it may not be suitable for everyone like pregnant women, breastfeeding mothers, or those on blood thinner medications.",
-    "how long does a lip procedure last": "It typically takes 2-3 hours for the procedure and the results last for at least 2-3 years.",
-    "default": "Please call/WhatsApp us on +91 9908063645 or DM on Instagram to get accurate responses."
-  };
-
-  function openChat() {
-    const chatPopup = document.getElementById('chatbot-popup');
-    const chatContent = document.getElementById('chat-content');
-
-    chatPopup.classList.add('active');
-
-    if (!chatContent.innerHTML.includes('Welcome to Browfairy!')) {
-      appendMessage('Bot', 'Welcome to Browfairy! I can assist you with FAQs and service-related questions.');
-      showQuickReplies(['What is microblading', 'Is it safe', 'Does it hurt']);
-    }
-  }
-
-  function closeChat() {
-    document.getElementById('chatbot-popup').classList.remove('active');
-  }
-
-  function clearChat() {
-    document.getElementById('chat-content').innerHTML = '';
-  }
-
-  document.getElementById('chat-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      let userInput = this.value.trim().toLowerCase();
-      if (userInput === '') return;
-
-      appendMessage('You', userInput);
-      this.value = '';
-      showTyping();
-
-      let botReplyContent = responses[userInput] || responses["default"];
-      
-      // Add contact links with underlines
-      let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJjem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
-      
-      let botReply = botReplyContent + contactLinks;
-
-      setTimeout(() => {
-        removeTyping();
-        appendMessage('Fairy', botReply);
-      }, 1000);
-    }
-  });
-
-  function appendMessage(sender, message) {
-    const chatContent = document.getElementById('chat-content');
-    const messageDiv = document.createElement('div');
-    const bubbleDiv = document.createElement('div');
-
-    messageDiv.classList.add('chat-message');
-    bubbleDiv.classList.add('message-bubble');
-
-    if (sender === 'You') {
-      messageDiv.classList.add('user-message');
-      bubbleDiv.classList.add('user-bubble');
-    } else {
-      messageDiv.classList.add('bot-message');
-      bubbleDiv.classList.add('bot-bubble');
     }
 
-    bubbleDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
-    messageDiv.appendChild(bubbleDiv);
-    chatContent.appendChild(messageDiv);
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
+    function openChat() {
+        const chatPopup = document.getElementById('chatbot-popup');
+        const chatContent = document.getElementById('chat-content');
+        const chatButton = document.querySelector('.chat-icon-button');
 
-  function showTyping() {
-    const chatContent = document.getElementById('chat-content');
-    const typingDiv = document.createElement('div');
-    typingDiv.id = 'typing-indicator';
-    typingDiv.className = 'chat-message bot-message';
-    typingDiv.innerHTML = `<div class='message-bubble bot-bubble typing'>Typing...</div>`;
-    chatContent.appendChild(typingDiv);
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
+        chatPopup.classList.add('active');
+        chatButton.classList.add('open');
+        chatState.isOpen = true;
+        chatState.hasNewMessage = false;
+        chatState.unreadCount = 0;
+        
+        // Remove notification badge
+        chatButton.classList.remove('new-message');
 
-  function removeTyping() {
-    const typingDiv = document.getElementById('typing-indicator');
-    if (typingDiv) typingDiv.remove();
-  }
+        if (!chatContent.innerHTML.includes('Welcome to Browfairy!')) {
+            appendMessage('Bot', 'Welcome to Browfairy! I can assist you with FAQs and service-related questions.');
+            showQuickReplies(['What is microblading', 'Is it safe', 'Does it hurt']);
+        }
+    }
 
-  function showQuickReplies(options) {
-    const chatContent = document.getElementById('chat-content');
-    const repliesDiv = document.createElement('div');
-    repliesDiv.className = 'quick-replies';
+    function closeChat() {
+        const chatPopup = document.getElementById('chatbot-popup');
+        const chatButton = document.querySelector('.chat-icon-button');
+        
+        chatPopup.classList.remove('active');
+        chatButton.classList.remove('open');
+        chatState.isOpen = false;
+        
+        // Show notification badge if there are new messages
+        if (chatState.hasNewMessage) {
+            chatButton.classList.add('new-message');
+            // Update the badge count
+            document.querySelector('.notification-badge').textContent = chatState.unreadCount;
+        }
+    }
 
-    options.forEach(option => {
-      const btn = document.createElement('div');
-      btn.className = 'quick-reply-btn';
-      btn.innerText = option;
-      btn.onclick = function() {
-        document.getElementById('chat-input').value = option;
-        document.getElementById('chat-input').focus();
-      };
-      repliesDiv.appendChild(btn);
+    function clearChat() {
+        document.getElementById('chat-content').innerHTML = '';
+        chatState.hasNewMessage = false;
+        chatState.unreadCount = 0;
+        
+        // Remove notification badge
+        document.querySelector('.chat-icon-button').classList.remove('new-message');
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('chat-input');
+        let userInput = input.value.trim().toLowerCase();
+        if (userInput === '') return;
+
+        appendMessage('You', userInput);
+        input.value = '';
+        showTyping();
+
+        let botReplyContent = responses[userInput] || responses["default"];
+        
+        // Add contact links with underlines
+        let contactLinks = "<br><br>👉 For more, visit our Instagram: <a href='https://www.instagram.com/browfairy_pmustudio?igsh=ZGJkem1yc3QzdWQz' target='_blank' class='contact-link'>Browfairy Instagram</a><br>📞 Contact us on WhatsApp: <a href='https://wa.me/919908063645' target='_blank' class='contact-link'>+91 9908063645</a>";
+        
+        let botReply = botReplyContent + contactLinks;
+
+        setTimeout(() => {
+            removeTyping();
+            appendMessage('Fairy', botReply);
+            
+            // Set new message flag if chat is closed
+            if (!chatState.isOpen) {
+                chatState.hasNewMessage = true;
+                chatState.unreadCount++;
+                const chatButton = document.querySelector('.chat-icon-button');
+                chatButton.classList.add('new-message');
+                document.querySelector('.notification-badge').textContent = chatState.unreadCount;
+            }
+        }, 1000);
+    }
+
+    document.getElementById('chat-input').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
     });
 
-    chatContent.appendChild(repliesDiv);
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
+    function appendMessage(sender, message) {
+        const chatContent = document.getElementById('chat-content');
+        const messageDiv = document.createElement('div');
+        const bubbleDiv = document.createElement('div');
 
-  document.addEventListener('click', function(event) {
-    const chatPopup = document.getElementById('chatbot-popup');
-    const chatButton = document.querySelector('.chat-icon-button');
-    if (chatPopup.classList.contains('active') && !chatPopup.contains(event.target) && !chatButton.contains(event.target)) {
-      closeChat();
+        messageDiv.classList.add('chat-message');
+        bubbleDiv.classList.add('message-bubble');
+
+        if (sender === 'You') {
+            messageDiv.classList.add('user-message');
+            bubbleDiv.classList.add('user-bubble');
+        } else {
+            messageDiv.classList.add('bot-message');
+            bubbleDiv.classList.add('bot-bubble');
+        }
+
+        bubbleDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+        messageDiv.appendChild(bubbleDiv);
+        chatContent.appendChild(messageDiv);
+        chatContent.scrollTop = chatContent.scrollHeight;
     }
-  });
+
+    function showTyping() {
+        const chatContent = document.getElementById('chat-content');
+        const typingDiv = document.createElement('div');
+        typingDiv.id = 'typing-indicator';
+        typingDiv.className = 'chat-message bot-message';
+        typingDiv.innerHTML = `<div class='message-bubble bot-bubble typing'>Typing...</div>`;
+        chatContent.appendChild(typingDiv);
+        chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    function removeTyping() {
+        const typingDiv = document.getElementById('typing-indicator');
+        if (typingDiv) typingDiv.remove();
+    }
+
+    function showQuickReplies(options) {
+        const chatContent = document.getElementById('chat-content');
+        const repliesDiv = document.createElement('div');
+        repliesDiv.className = 'quick-replies';
+
+        options.forEach(option => {
+            const btn = document.createElement('div');
+            btn.className = 'quick-reply-btn';
+            btn.innerText = option;
+            btn.onclick = function() {
+                document.getElementById('chat-input').value = option;
+                document.getElementById('chat-input').focus();
+            };
+            repliesDiv.appendChild(btn);
+        });
+
+        chatContent.appendChild(repliesDiv);
+        chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    document.addEventListener('click', function(event) {
+        const chatPopup = document.getElementById('chatbot-popup');
+        const chatButton = document.querySelector('.chat-icon-button');
+        if (chatPopup.classList.contains('active') && !chatPopup.contains(event.target) && !chatButton.contains(event.target)) {
+            closeChat();
+        }
+    });
 </script>
 </body>
 </html>
-
